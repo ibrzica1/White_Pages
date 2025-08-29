@@ -8,7 +8,13 @@
 
 <body>
   
-  
+  <div class="header-main-container">
+      <div class="logo"></div>
+      <div class="login-signup">
+        <a href="login.php">Log In</a>
+        <a href="signup.php">Sign Up</a>
+      </div>
+  </div>
 
 </body>
 

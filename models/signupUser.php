@@ -1,8 +1,13 @@
 <?php
 
-session_start();
+if(session_status() == PHP_SESSION_NONE)
+{
+  session_start();
+}
 
-if(!isset($_POST["userName"]) || empty($_POST["userName"]))
+require_once "User.php";
+
+if(!isset($_POST["username"]) || empty($_POST["username"]))
 {
   $_SESSION["message"] = "You didnt send Username";
   header("Location: ../signup.php");
@@ -10,7 +15,7 @@ if(!isset($_POST["userName"]) || empty($_POST["userName"]))
 }
 else
 {
-  $userName = $_POST["userName"];
+  $username = $_POST["username"];
 }
 
 if(!isset($_POST["email"]) || empty($_POST["email"]))
@@ -44,4 +49,13 @@ if(!isset($_POST["repeatPassword"]) || empty($_POST["repeatPassword"]))
 else
 {
   $repeatPassword = $_POST["repeatPassword"];
+}
+
+$user = new User($username,$email,$password);
+
+if($user->checkUsernameExists($username))
+{
+  $_SESSION["message"] = "Username already exists";
+  header("Location: ../signup.php");
+  exit();
 }

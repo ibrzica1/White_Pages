@@ -20,7 +20,7 @@
     <?php unset($_SESSION["message"]); ?>
   <?php endif; ?>
   <form action="models/signupUser.php" method="POST">
-      <input type="text" name="userName" placeholder="Enter Username">
+      <input type="text" name="username" placeholder="Enter Username">
       <input type="email" name="email" placeholder="Enter Email">
       <input type="text" name="password" placeholder="Enter Password">
       <input type="text" name="repeatPassword" placeholder="Repeat Password">

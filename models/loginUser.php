@@ -52,5 +52,10 @@ if(!password_verify($password,$passwordFromDatabase))
   exit();
 }
 
+$_SESSION["username"] = $user["username"];
+$_SESSION["id"] = $user["id"];
+$_SESSION["logged"] = true;
 
+header("Location: ../index.php");
+exit();
   

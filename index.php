@@ -1,3 +1,12 @@
+<?php
+
+  if(session_status() == PHP_SESSION_NONE)
+  {
+    session_start();
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +19,17 @@
   
   <div class="header-main-container">
       <div class="logo"></div>
-      <div class="login-signup">
+      
+  <?php if(isset($_SESSION["logged"])): ?>
+    <p><?= $_SESSION["ime"] ?></p>
+    <a href="logout.php">Logout</a>
+  <?php else: ?>
+    <div class="login-signup">
         <a href="login.php">Log In</a>
         <a href="signup.php">Sign Up</a>
-      </div>
+    </div>
+  <?php endif; ?>
+      
   </div>
 
 </body>

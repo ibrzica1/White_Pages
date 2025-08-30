@@ -52,7 +52,7 @@ else
 }
 
 
-$user = new User($username,$email,$password);
+$user = new User();
 
 if($user->checkUsernameExists($username))
 {
@@ -76,3 +76,4 @@ if($password != $repeatPassword)
 }
 
 $user->registerUser($username,$email,$password);
+header("Location. ../index.php");

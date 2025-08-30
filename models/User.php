@@ -8,15 +8,6 @@ class User extends Database
   public $email;
   public $password;
 
-  public function __construct($username,$email,$password)
-  {
-    parent::__construct();
-
-    $this->username = $username;
-    $this->email = $email;
-    $this->password = $password;
-  }
-
   public function checkUsernameExists($name)
   {
     $rezultat = $this->connection->query("SELECT * FROM user WHERE username = '$name' ");

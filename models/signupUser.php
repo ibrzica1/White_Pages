@@ -42,7 +42,7 @@ else
 
 if(!isset($_POST["repeatPassword"]) || empty($_POST["repeatPassword"]))
 {
-  $_SESSION["message"] = "You didnt send repeatPassword";
+  $_SESSION["message"] = "You didnt send repeated password";
   header("Location: ../signup.php");
   exit();
 }
@@ -50,6 +50,7 @@ else
 {
   $repeatPassword = $_POST["repeatPassword"];
 }
+
 
 $user = new User($username,$email,$password);
 
@@ -66,3 +67,12 @@ if($user->checkEmailExists($email))
   header("Location: ../signup.php");
   exit();
 }
+
+if($password != $repeatPassword)
+{
+  $_SESSION["message"] = "Passwords dont match";
+  header("Location: ../signup.php");
+  exit();
+}
+
+$user->registerUser($username,$email,$password);

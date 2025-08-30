@@ -44,4 +44,15 @@ class User extends Database
       return false;
     }
   }
+
+  public function registerUser($username,$email,$password)
+  {
+    $username = $this->connection->real_escape_string($username);
+    $email = $this->connection->real_escape_string($email);
+    $password = password_hash($password, PASSWORD_BCRYPT);
+    $password = $this->connection->real_escape_string($password);
+
+    $this->connection->query("INSERT INTO user(username, email, password)
+    VALUES ('$username','$email','$password') ");
+  }
 }

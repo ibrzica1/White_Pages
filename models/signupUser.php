@@ -59,3 +59,10 @@ if($user->checkUsernameExists($username))
   header("Location: ../signup.php");
   exit();
 }
+
+if($user->checkEmailExists($email))
+{
+  $_SESSION["message"] = "Email already exists";
+  header("Location: ../signup.php");
+  exit();
+}

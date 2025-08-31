@@ -19,9 +19,9 @@
   
   <div class="header-main-container">
       <div class="logo"></div>
-      
+
   <?php if(isset($_SESSION["logged"])): ?>
-    <p><?= $_SESSION["ime"] ?></p>
+    <p><?= $_SESSION["username"] ?></p>
     <a href="logout.php">Logout</a>
   <?php else: ?>
     <div class="login-signup">

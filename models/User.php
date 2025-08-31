@@ -46,4 +46,5 @@ class User extends Database
     $this->connection->query("INSERT INTO user(username, email, password)
     VALUES ('$username','$email','$password') ");
   }
+
 }

@@ -7,6 +7,7 @@ if(session_status() == PHP_SESSION_NONE)
 
 require_once "User.php";
 
+
 if(!isset($_POST["username"]) || empty($_POST["username"]))
 {
   $_SESSION["message"] = "You didnt send Username";
@@ -76,4 +77,13 @@ if($password != $repeatPassword)
 }
 
 $user->registerUser($username,$email,$password);
+
+$result = $user->connection->query("SELECT id FROM user WHERE email = '$email' ");
+$userId = $result->fetch_assoc();
+
+$_SESSION["id"] = $userId["id"];
+$_SESSION["username"] = $user["username"];
+$_SESSION["logged"] = true;
+
 header("Location. ../index.php");
+exit();

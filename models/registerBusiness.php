@@ -29,15 +29,15 @@ else
   $address = $_POST["address"];
 }
 
-if(!isset($_POST["foundet"]) || empty($_POST["foundet"]))
+if(!isset($_POST["founded"]) || empty($_POST["founded"]))
 {
-  $_SESSION["message"] = "You didnt send foundet";
+  $_SESSION["message"] = "You didnt send founded";
   header("Location: ../businessinput.php");
   exit();
 }
 else
 {
-  $foundet = $_POST["foundet"];
+  $founded = $_POST["founded"];
 }
 
 if(!isset($_POST["employees"]) || empty($_POST["employees"]))
@@ -67,6 +67,22 @@ $business = new Business();
 if($business->checkBusinessIdExists($business_id))
 {
   $_SESSION["message"] = "Business Id already exists";
+  header("Location: ../businessinput.php");
+  exit();
+}
+
+if(!isset($_SESSION["id"]))
+{
+  $_SESSION["message"] = "Session Id not set, Login again";
+  header("Location: ../businessinput.php");
+  exit();
+}
+
+$user_id = $_SESSION["id"];
+
+if(!$business->validateDateFormat($founded))
+{
+  $_SESSION["message"] = "Founded date incorrect input or format (YYYY-MM-DD)";
   header("Location: ../businessinput.php");
   exit();
 }

@@ -24,4 +24,12 @@ class Business extends Database
       return false;
     }
   }
+
+  public function validateDateFormat($date)
+  {
+    $format = 'Y-m-d';
+    $dateTimeObj = DateTime::createFromFormat($format, $date);
+
+    return $dateTimeObj && $dateTimeObj->format($format) === $date;
+  }
 }

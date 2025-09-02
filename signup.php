@@ -23,11 +23,13 @@ if(isset($_SESSION["logged"]))
 </head>
 
 <body>
+
   <?php if(isset($_SESSION["message"])): ?>
     <?php $message = htmlspecialchars($_SESSION["message"]); ?>
     <p><?= $message ?></p>
     <?php unset($_SESSION["message"]); ?>
   <?php endif; ?>
+
   <form action="models/signupUser.php" method="POST">
       <input type="text" name="username" placeholder="Enter Username">
       <input type="email" name="email" placeholder="Enter Email">
@@ -35,6 +37,8 @@ if(isset($_SESSION["logged"]))
       <input type="text" name="repeatPassword" placeholder="Repeat Password">
       <button>Register</button>
   </form>  
+
+  
 </body>
 
 </html>

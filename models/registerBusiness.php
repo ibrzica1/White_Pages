@@ -61,3 +61,12 @@ else
 {
   $revenue = $_POST["revenue"];
 }
+
+$business = new Business();
+
+if($business->checkBusinessIdExists($business_id))
+{
+  $_SESSION["message"] = "Business Id already exists";
+  header("Location: ../businessinput.php");
+  exit();
+}

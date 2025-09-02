@@ -33,7 +33,7 @@
   </div>
 
   <?php if(isset($_SESSION["logged"])): ?>
-    <a href="businessRegister.php">Register Business</a>
+    <a href="businessInput.php">Register Business</a>
   <?php endif; ?>
 
 </body>

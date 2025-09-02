@@ -1,3 +1,19 @@
+<?php
+
+if(session_status() == PHP_SESSION_NONE)
+{
+  session_start();
+}
+
+if(!isset($_SESSION["logged"]))
+{
+  header("Location: index.php");
+  exit();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +23,12 @@
 </head>
 
 <body>
+
+    <?php if(isset($_SESSION["message"])): ?>
+      <?php $message = htmlspecialchars($_SESSION["message"]); ?>
+      <p><?= $message ?></p>
+      <?php unset($_SESSION["message"]); ?>
+    <?php endif; ?>
   
     <form action="models/registerBusiness.php" method="post">
         <input type="text" name="business_id" placeholder="Business Id">

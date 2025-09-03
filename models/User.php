@@ -10,6 +10,8 @@ class User extends Database
 
   public function checkUsernameExists($name)
   {
+    $name = $this->connection->real_escape_string($name);
+
     $rezultat = $this->connection->query("SELECT * FROM user WHERE username = '$name' ");
 
     if($rezultat->num_rows > 0)
@@ -24,6 +26,8 @@ class User extends Database
 
   public function checkEmailExists($email)
   {
+    $email = $this->connection->real_escape_string($email);
+    
     $rezultat = $this->connection->query("SELECT * FROM user WHERE email = '$email' ");
 
     if($rezultat->num_rows > 0)
@@ -45,6 +49,13 @@ class User extends Database
 
     $this->connection->query("INSERT INTO user(username, email, password)
     VALUES ('$username','$email','$password') ");
+  }
+
+  public function getUserId($email)
+  {
+    $result = $this->connection->query("SELECT id FROM user WHERE email = '$email' ");
+    $userId = $result->fetch_assoc();
+    return $userId['id'];
   }
 
 }

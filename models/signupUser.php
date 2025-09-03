@@ -78,12 +78,11 @@ if($password != $repeatPassword)
 
 $user->registerUser($username,$email,$password);
 
-$result = $user->connection->query("SELECT id FROM user WHERE email = '$email' ");
-$userId = $result->fetch_assoc();
+$userId = $user->getUserId($email);
 
-$_SESSION["id"] = $userId["id"];
-$_SESSION["username"] = $user["username"];
+$_SESSION["id"] = $userId;
+$_SESSION["username"] = $username;
 $_SESSION["logged"] = true;
 
-header("Location. ../index.php");
+header("Location: ../index.php");
 exit();

@@ -25,11 +25,18 @@ class Business extends Database
     }
   }
 
-  public function validateDateFormat($date)
+  public function checkFoundedDate($date)
   {
-    $format = 'Y-m-d';
-    $dateTimeObj = DateTime::createFromFormat($format, $date);
+      $foundedDate = new DateTime($date);
+      $dateNow = new DateTime();
 
-    return $dateTimeObj && $dateTimeObj->format($format) === $date;
+      if($foundedDate <= $dateNow)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
   }
 }

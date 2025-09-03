@@ -80,9 +80,39 @@ if(!isset($_SESSION["id"]))
 
 $user_id = $_SESSION["id"];
 
-if(!$business->validateDateFormat($founded))
+if(!$business->checkFoundedDate($founded))
 {
-  $_SESSION["message"] = "Founded date incorrect input or format (YYYY-MM-DD)";
+  $_SESSION["message"] = "Founded date cant be after today ";
   header("Location: ../businessinput.php");
   exit();
+}
+
+if(!is_numeric($employees))
+{
+  $_SESSION["message"] = "Employees input must be a number";
+  header("Location: ../businessinput.php");
+  exit();
+}
+
+$employeesCount = (int)$employees;
+
+if ($employeesCount <= 0) {
+    $_SESSION["message"] = "Number of employees must be a positive number.";
+    header("Location: ../businessinput.php");
+    exit();
+}
+
+if(!is_numeric($revenue))
+{
+  $_SESSION["message"] = "Revenue input must be a number";
+  header("Location: ../businessinput.php");
+  exit();
+}
+
+$revenueCount = (int)$revenue;
+
+if ($revenueCount <= 0) {
+    $_SESSION["message"] = "Revenue must be a positive number.";
+    header("Location: ../businessinput.php");
+    exit();
 }

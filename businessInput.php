@@ -33,7 +33,7 @@ if(!isset($_SESSION["logged"]))
     <form action="models/registerBusiness.php" method="post">
         <input type="text" name="business_id" placeholder="Business Id">
         <input type="text" name="address" placeholder="Address">
-        <input type="text" name="founded" placeholder="Founded">
+        <input type="date" name="founded" placeholder="Founded">
         <input type="text" name="employees" placeholder="Employees">
         <input type="text" name="revenue" placeholder="Revenue">
         <button>Register</button>

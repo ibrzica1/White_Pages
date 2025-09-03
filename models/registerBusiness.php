@@ -111,8 +111,10 @@ if(!is_numeric($revenue))
 
 $revenueCount = (int)$revenue;
 
-if ($revenueCount <= 0) {
+if($revenueCount <= 0) {
     $_SESSION["message"] = "Revenue must be a positive number.";
     header("Location: ../businessinput.php");
     exit();
 }
+
+$business->registerBusiness($business_id,$user_id,$address,$founded,$employees,$revenue);

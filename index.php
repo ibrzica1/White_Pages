@@ -36,6 +36,26 @@
     <a href="businessInput.php">Register Business</a>
   <?php endif; ?>
 
+  <div>
+    <form action="searchBusinId.php" method="get">
+      <h4>Search By Business Id</h4>
+      <input type="text" name="inputBusinId" placeholder="Business Id">
+      <button>Search</button>
+    </form>
+
+    <form action="searchBusinAddress.php" method="get">
+      <h4>Search By Business Address</h4>
+      <input type="text" name="inputBusinAddress" placeholder="Business Address">
+      <button>Search</button>
+    </form>
+
+    <form action="searchBusinName.php" method="get">
+      <h4>Search By Business Name</h4>
+      <input type="text" name="inputBusinName" placeholder="Business Name">
+      <button>Search</button>
+    </form>
+  </div>
+
 </body>
 
 </html>

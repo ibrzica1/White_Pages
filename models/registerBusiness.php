@@ -18,6 +18,17 @@ else
   $business_id = $_POST["business_id"];
 }
 
+if(!isset($_POST["name"]) || empty($_POST["name"]))
+{
+  $_SESSION["message"] = "You didnt send name";
+  header("Location: ../businessinput.php");
+  exit();
+}
+else
+{
+  $name = $_POST["name"];
+}
+
 if(!isset($_POST["address"]) || empty($_POST["address"]))
 {
   $_SESSION["message"] = "You didnt send address";
@@ -117,4 +128,4 @@ if($revenueCount <= 0) {
     exit();
 }
 
-$business->registerBusiness($business_id,$user_id,$address,$founded,$employees,$revenue);
+$business->registerBusiness($business_id,$user_id,$name,$address,$founded,$employees,$revenue);

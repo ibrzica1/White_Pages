@@ -6,6 +6,7 @@ class Business extends Database
 {
   public $business_id;
   public $user_id;
+  public $name;
   public $address;
   public $founded;
   public $employees;
@@ -42,16 +43,17 @@ class Business extends Database
       }
   }
 
-  public function registerBusiness($business_id,$user_id,$address,$founded,$employees,$revenue)
+  public function registerBusiness($business_id,$user_id,$name,$address,$founded,$employees,$revenue)
   {
     $business_id = $this->connection->real_escape_string($business_id);
     $user_id = $this->connection->real_escape_string($user_id);
+    $name = $this->connection->real_escape_string($name);
     $address = $this->connection->real_escape_string($address);
     $founded = $this->connection->real_escape_string($founded);
     $employees = $this->connection->real_escape_string($employees);
     $revenue = $this->connection->real_escape_string($revenue);
 
-    $this->connection->query("INSERT INTO business(business_id, user_id, address, founded, employees, revenue)
-    VALUES ('$business_id', '$user_id', '$address', '$founded', $employees, $revenue)");
+    $this->connection->query("INSERT INTO business(business_id, user_id, name, address, founded, employees, revenue)
+    VALUES ('$business_id', '$user_id', '$name', '$address', '$founded', $employees, $revenue)");
   }
 }

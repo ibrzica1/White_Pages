@@ -37,6 +37,13 @@
   <?php endif; ?>
 
   <div>
+
+    <?php if(isset($_SESSION["message"])): ?>
+      <?php $message = htmlspecialchars($_SESSION["message"]); ?>
+      <p><?=  $message ?></p>
+      <?php unset($_SESSION["message"]); ?>
+    <?php endif; ?>
+
     <form action="searchBusinId.php" method="get">
       <h4>Search By Business Id</h4>
       <input type="text" name="inputBusinId" placeholder="Business Id">

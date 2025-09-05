@@ -13,20 +13,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Index</title>
+  <link rel="stylesheet" href="style/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
   
   <div class="header-main-container">
-      <div class="logo"></div>
+      <div class="logo">
+        <a href="index.php">
+          <img src="images\White-Pages-Logo.png">
+        </a>
+      </div>
 
   <?php if(isset($_SESSION["logged"])): ?>
-    <p><?= $_SESSION["username"] ?></p>
-    <a href="logout.php">Logout</a>
+    <div class="user-header">
+      <p><?= $_SESSION["username"] ?></p>
+      <a href="logout.php">Logout</a>
+    </div>
   <?php else: ?>
     <div class="login-signup">
-        <a href="login.php">Log In</a>
-        <a href="signup.php">Sign Up</a>
+        <a href="login.php" class="login">Log In</a>
+        <a href="signup.php" class="signup">Sign Up</a>
     </div>
   <?php endif; ?>
       

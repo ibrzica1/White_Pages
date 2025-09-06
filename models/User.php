@@ -58,4 +58,10 @@ class User extends Database
     return $userId['id'];
   }
 
+  public function getUser($id)
+  {
+    $result = $this->connection->query("SELECT * FROM user WHERE id = '$id' ");
+    $user = $result->fetch_assoc();
+    return $user;
+  }
 }

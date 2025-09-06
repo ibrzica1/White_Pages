@@ -64,4 +64,11 @@ class User extends Database
     $user = $result->fetch_assoc();
     return $user;
   }
+
+  public function getUserBusiness($id)
+  {
+    $result = $this->connection->query("SELECT * FROM business WHERE user_id = '$id' ");
+    $business = $result->fetch_all(MYSQLI_ASSOC);
+    return $business;
+  }
 }

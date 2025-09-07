@@ -80,6 +80,14 @@ class User extends Database
     return $number;
   }
 
+  public function getUserPassword($id)
+  {
+    $id = $this->connection->real_escape_string($id);
+    $result = $this->connection->query("SELECT password FROM user WHERE id = '$id' ");
+    $password = $result->fetch_assoc();
+    return $userId['password'];
+  }
+
   public function deleteUser($id)
   {
     $id = $this->connection->real_escape_string($id);

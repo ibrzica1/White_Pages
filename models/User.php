@@ -28,9 +28,9 @@ class User extends Database
   {
     $email = $this->connection->real_escape_string($email);
     
-    $rezultat = $this->connection->query("SELECT * FROM user WHERE email = '$email' ");
+    $result = $this->connection->query("SELECT * FROM user WHERE email = '$email' ");
 
-    if($rezultat->num_rows > 0)
+    if($result->num_rows > 0)
     {
       return true;
     }
@@ -85,5 +85,14 @@ class User extends Database
     $id = $this->connection->real_escape_string($id);
     $this->connection->query("DELETE FROM user WHERE id = '$id' ");
     $this->connection->query("DELETE FROM business WHERE user_id = '$id' ");
+  }
+
+  public function updateUsername($username,$id)
+  {
+    $username = $this->connection->real_escape_string($username);
+
+    $this->connection->query("UPDATE user 
+    SET username = '$username'
+    WHERE id = '$id'");
   }
 }

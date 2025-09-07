@@ -107,9 +107,21 @@ class User extends Database
   public function updateEmail($email,$id)
   {
     $email = $this->connection->real_escape_string($email);
+    $id = $this->connection->real_escape_string($id);
 
     $this->connection->query("UPDATE user 
     SET email = '$email'
+    WHERE id = '$id'");
+  }
+
+  public function updatePassword($password,$id)
+  {
+    $password = password_hash($password, PASSWORD_BCRYPT); 
+    $password = $this->connection->real_escape_string($password);
+    $id = $this->connection->real_escape_string($id);
+
+    $this->connection->query("UPDATE user 
+    SET password = '$password'
     WHERE id = '$id'");
   }
 }

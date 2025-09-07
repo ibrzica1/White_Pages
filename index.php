@@ -29,9 +29,15 @@
       </div>
 
   <?php if(isset($_SESSION["logged"])): ?>
+    
     <div class="user-header">
-      <p><?= $_SESSION["username"] ?></p>
+      <div>
+      <a href="businessInput.php">Register Business</a>
+     </div>
+     <div>
+      <a href="userPage.php"><?= $_SESSION["username"] ?></a>
       <a href="logout.php">Logout</a>
+     </div>
     </div>
   <?php else: ?>
     <div class="login-signup">
@@ -41,11 +47,6 @@
   <?php endif; ?>
       
   </div>
-
-  <?php if(isset($_SESSION["logged"])): ?>
-    <a href="businessInput.php">Register Business</a>
-  <?php endif; ?>
-
   <div>
 
     <?php if(isset($_SESSION["message"])): ?>

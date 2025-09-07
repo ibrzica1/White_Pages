@@ -71,4 +71,19 @@ class User extends Database
     $business = $result->fetch_all(MYSQLI_ASSOC);
     return $business;
   }
+
+  public function getNumberUserBusiness($id)
+  {
+    $id = $this->connection->real_escape_string($id);
+    $result = $this->connection->query("SELECT * FROM business WHERE user_id = '$id' ");
+    $number = $result->num_rows;
+    return $number;
+  }
+
+  public function deleteUser($id)
+  {
+    $id = $this->connection->real_escape_string($id);
+    $this->connection->query("DELETE FROM user WHERE id = '$id' ");
+    $this->connection->query("DELETE FROM business WHERE user_id = '$id' ");
+  }
 }

@@ -129,3 +129,6 @@ if($revenueCount <= 0) {
 }
 
 $business->registerBusiness($business_id,$user_id,$name,$address,$founded,$employees,$revenue);
+
+header ("Location: ../index.php");
+exit();

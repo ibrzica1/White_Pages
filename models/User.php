@@ -95,4 +95,13 @@ class User extends Database
     SET username = '$username'
     WHERE id = '$id'");
   }
+
+  public function updateEmail($email,$id)
+  {
+    $email = $this->connection->real_escape_string($email);
+
+    $this->connection->query("UPDATE user 
+    SET email = '$email'
+    WHERE id = '$id'");
+  }
 }

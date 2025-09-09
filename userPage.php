@@ -108,7 +108,7 @@ $businessCount = $user->getNumberUserBusiness($userId);
 
 <div>
   <h3>Business Registered <?=$businessCount?></h3>
-  <button>Edit</button>
+  <a href="userBusiness.php">Edit</a>
 </div>
 <div>
   <form action="models/deleteUser.php" method="post" onsubmit="return confirm('Are you sure?');">

@@ -106,4 +106,24 @@ if(isset($_POST['field']))
     header("Location: ../userBusiness.php");
     exit();
   }
+
+  if($fieldToUpdate === 'employees')
+  {
+    if(!isset($_POST["newEmployees"]) || empty($_POST["newEmployees"]))
+      {
+        $_SESSION["message"] = "You didnt send employees";
+        header("Location: ../userBusiness.php");
+        exit();
+      }
+    else
+      {
+        $newEmployees = $_POST["newEmployees"];
+      }
+
+    $business->updateEmployees($newEmployees,$businessId);
+
+    $_SESSION["message"] = "Employees successfully chaged";
+    header("Location: ../userBusiness.php");
+    exit();
+  }
 }

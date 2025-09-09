@@ -61,6 +61,16 @@ class Business extends Database
     SET founded = '$founded'
     WHERE id = '$id'");
   }
+  
+  public function updateEmployees($employees,$id)
+  {
+    $employees = $this->connection->real_escape_string($employees);
+    $id = $this->connection->real_escape_string($id);
+
+    $this->connection->query("UPDATE business 
+    SET employees = '$employees'
+    WHERE id = '$id'");
+  }
 
   public function deleteBusiness($id)
   {

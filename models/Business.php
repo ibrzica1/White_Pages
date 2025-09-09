@@ -42,6 +42,16 @@ class Business extends Database
     WHERE id = '$id'");
   }
 
+  public function updateAddress($address,$id)
+  {
+    $address = $this->connection->real_escape_string($address);
+    $id = $this->connection->real_escape_string($id);
+
+    $this->connection->query("UPDATE business 
+    SET address = '$address'
+    WHERE id = '$id'");
+  }
+
   public function deleteBusiness($id)
   {
     $id = $this->connection->real_escape_string($id);

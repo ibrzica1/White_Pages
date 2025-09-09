@@ -51,7 +51,7 @@ if(isset($_POST['field']))
   {
     if(!isset($_POST["newName"]) || empty($_POST["newName"]))
       {
-        $_SESSION["message"] = "You didnt send name id";
+        $_SESSION["message"] = "You didnt send name";
         header("Location: ../userBusiness.php");
         exit();
       }
@@ -63,6 +63,26 @@ if(isset($_POST['field']))
     $business->updateName($newname,$businessId);
 
     $_SESSION["message"] = "Name successfully chaged";
+    header("Location: ../userBusiness.php");
+    exit();
+  }
+
+  if($fieldToUpdate === 'address')
+  {
+    if(!isset($_POST["newAddress"]) || empty($_POST["newAddress"]))
+      {
+        $_SESSION["message"] = "You didnt send address";
+        header("Location: ../userBusiness.php");
+        exit();
+      }
+    else
+      {
+        $newAddress = $_POST["newAddress"];
+      }
+
+    $business->updateAddress($newAddress,$businessId);
+
+    $_SESSION["message"] = "Address successfully chaged";
     header("Location: ../userBusiness.php");
     exit();
   }

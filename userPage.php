@@ -18,7 +18,6 @@ $user = new User();
 $sessionUser = $user->getUser($userId);
 $businessArray = $user->getUserBusiness($userId);
 $businessCount = $user->getNumberUserBusiness($userId);
-var_dump($businessCount);
 
 ?>
 
@@ -50,18 +49,63 @@ var_dump($businessCount);
 </div>
 
 <h2><?=$sessionUser["username"]?></h2>
-<div>
-  <h3><?=$sessionUser["username"]?></h3>
-  <button>Edit</button>
+
+<?php if(isset($_SESSION["message"])): ?>
+    <?php $message = htmlspecialchars($_SESSION["message"]); ?>
+    <p><?=  $message ?></p>
+    <?php unset($_SESSION["message"]); ?>
+<?php endif; ?>
+
+<div class="username-container">
+  <div class="username-display">
+    <h3><?=$sessionUser["username"]?></h3>
+    <button onclick="showEditForm('username')">Edit</button>
+  </div>
+
+  <div class="username-edit-form" style="display: none;">
+    <form action="models/updateUser.php" method="post">
+      <input type="hidden" name="field" value="username">
+      <input type="text" name="newUsername" placeholder="<?=$sessionUser["username"]?>">
+      <button type="submit">Save</button>
+      <button type="button" onclick="hideEditForm('username')">Cancel</button>
+    </form>
+  </div>
 </div>
-<div>
-  <h3><?=$sessionUser["email"]?></h3>
-  <button>Edit</button>
+
+<div class="email-container">
+  <div class="email-display">
+    <h3><?=$sessionUser["email"]?></h3>
+    <button onclick="showEditForm('email')">Edit</button>
+  </div>
+
+  <div class="email-edit-form" style="display: none;">
+    <form action="models/updateUser.php" method="post">
+      <input type="hidden" name="field" value="email">
+      <input type="text" name="newEmail" placeholder="<?=$sessionUser["email"]?>">
+      <button type="submit">Save</button>
+      <button type="button" onclick="hideEditForm('email')">Cancel</button>
+    </form>
+  </div>
 </div>
-<div>
-  <h3>***********</h3>
-  <button>Edit</button>
+
+<div class="password-container">
+  <div class="password-display">
+    <h3>*********</h3>
+    <button onclick="showEditForm('password')">Edit</button>
+  </div>
+
+  <div class="password-edit-form" style="display: none;">
+    <form action="models/updateUser.php" method="post">
+      <input type="hidden" name="field" value="password">
+      <input type="text" name="oldPassword" placeholder="Old Password">
+      <input type="text" name="newPassword" placeholder="New Password">
+      <input type="text" name="repeatPassword" placeholder="Repeat Password">
+      <button type="submit">Save</button>
+      <button type="button" onclick="hideEditForm('username')">Cancel</button>
+    </form>
+  </div>
 </div>
+
 <div>
   <h3>Business Registered <?=$businessCount?></h3>
   <button>Edit</button>
@@ -71,6 +115,21 @@ var_dump($businessCount);
     <button>Delete account</button>
   </form>
 </div>
+
+
+<script>
+  function showEditForm(field)
+  {
+    document.querySelector(`.${field}-display`).style.display = 'none';
+    document.querySelector(`.${field}-edit-form`).style.display = 'block';
+  }
+
+  function hideEditForm(field)
+  {
+    document.querySelector(`.${field}-display`).style.display = 'block';
+    document.querySelector(`.${field}-edit-form`).style.display = 'none';
+  }
+</script>
 
 </body>
 

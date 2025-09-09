@@ -12,6 +12,16 @@ class Business extends Database
   public $employees;
   public $revenue;
 
+  public function getBusinessByUserId($userId)
+  {
+     $userId = $this->connection->real_escape_string($userId);
+
+     $result = $this->connection->query("SELECT * FROM business WHERE user_id = '$userId' ");
+
+     $business = $result->fetch_all(MYSQLI_ASSOC);
+     return $business;
+  }
+
   public function checkBusinessIdExists($id)
   {
     $id = $this->connection->real_escape_string($id);

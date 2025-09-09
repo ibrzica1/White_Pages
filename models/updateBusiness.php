@@ -46,4 +46,24 @@ if(isset($_POST['field']))
     header("Location: ../userBusiness.php");
     exit();
   }
+
+  if($fieldToUpdate === 'name')
+  {
+    if(!isset($_POST["newName"]) || empty($_POST["newName"]))
+      {
+        $_SESSION["message"] = "You didnt send name id";
+        header("Location: ../userBusiness.php");
+        exit();
+      }
+    else
+      {
+        $newname = $_POST["newName"];
+      }
+
+    $business->updateName($newname,$businessId);
+
+    $_SESSION["message"] = "Name successfully chaged";
+    header("Location: ../userBusiness.php");
+    exit();
+  }
 }

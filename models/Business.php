@@ -32,6 +32,16 @@ class Business extends Database
     WHERE id = '$id'");
   }
 
+  public function updateName($name,$id)
+  {
+    $name = $this->connection->real_escape_string($name);
+    $id = $this->connection->real_escape_string($id);
+
+    $this->connection->query("UPDATE business 
+    SET name = '$name'
+    WHERE id = '$id'");
+  }
+
   public function deleteBusiness($id)
   {
     $id = $this->connection->real_escape_string($id);

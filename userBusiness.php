@@ -106,7 +106,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
         <form action="models/updateBusiness.php" method="post">
           <input type="hidden" name="field" value="founded">
           <input type="hidden" name="id" value="<?=$business["id"]?>">
-          <input type="text" name="newFounded" placeholder="<?=$business['founded']?>">
+          <input type="date" name="newFounded" placeholder="<?=$business['founded']?>">
           <button type="submit">Save</button>
           <button type="button" onclick="hideEditForm('founded')">Cancel</button>
         </form>

@@ -86,4 +86,24 @@ if(isset($_POST['field']))
     header("Location: ../userBusiness.php");
     exit();
   }
+
+  if($fieldToUpdate === 'founded')
+  {
+    if(!isset($_POST["newFounded"]) || empty($_POST["newFounded"]))
+      {
+        $_SESSION["message"] = "You didnt send founded";
+        header("Location: ../userBusiness.php");
+        exit();
+      }
+    else
+      {
+        $newFounded = $_POST["newFounded"];
+      }
+
+    $business->updateFounded($newFounded,$businessId);
+
+    $_SESSION["message"] = "Founded successfully chaged";
+    header("Location: ../userBusiness.php");
+    exit();
+  }
 }

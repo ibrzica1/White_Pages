@@ -22,6 +22,16 @@ class Business extends Database
      return $business;
   }
 
+  public function updateBusinessId($business_id,$id)
+  {
+    $business_id = $this->connection->real_escape_string($business_id);
+    $id = $this->connection->real_escape_string($id);
+
+    $this->connection->query("UPDATE business 
+    SET business_id = '$business_id'
+    WHERE id = '$id'");
+  }
+
   public function deleteBusiness($id)
   {
     $id = $this->connection->real_escape_string($id);

@@ -54,6 +54,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
       <div class="business_id-edit-form" style="display: none;">
         <form action="models/updateBusiness.php" method="post">
           <input type="hidden" name="field" value="business_id">
+          <input type="hidden" name="id" value="<?=$business["id"]?>">
           <input type="text" name="newBusiness_id" placeholder="<?=$business['business_id']?>">
           <button type="submit">Save</button>
           <button type="button" onclick="hideEditForm('business_id')">Cancel</button>
@@ -70,6 +71,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
       <div class="name-edit-form" style="display: none;">
         <form action="models/updateBusiness.php" method="post">
           <input type="hidden" name="field" value="name">
+          <input type="hidden" name="id" value="<?=$business["id"]?>">
           <input type="text" name="newName" placeholder="<?=$business['name']?>">
           <button type="submit">Save</button>
           <button type="button" onclick="hideEditForm('name')">Cancel</button>
@@ -86,6 +88,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
       <div class="address-edit-form" style="display: none;">
         <form action="models/updateBusiness.php" method="post">
           <input type="hidden" name="field" value="address">
+          <input type="hidden" name="id" value="<?=$business["id"]?>">
           <input type="text" name="newAddress" placeholder="<?=$business['address']?>">
           <button type="submit">Save</button>
           <button type="button" onclick="hideEditForm('address')">Cancel</button>
@@ -102,6 +105,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
       <div class="founded-edit-form" style="display: none;">
         <form action="models/updateBusiness.php" method="post">
           <input type="hidden" name="field" value="founded">
+          <input type="hidden" name="id" value="<?=$business["id"]?>">
           <input type="text" name="newFounded" placeholder="<?=$business['founded']?>">
           <button type="submit">Save</button>
           <button type="button" onclick="hideEditForm('founded')">Cancel</button>
@@ -118,6 +122,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
       <div class="employees-edit-form" style="display: none;">
         <form action="models/updateBusiness.php" method="post">
           <input type="hidden" name="field" value="employees">
+          <input type="hidden" name="id" value="<?=$business["id"]?>">
           <input type="text" name="newEmployees" placeholder="<?=$business['employees']?>">
           <button type="submit">Save</button>
           <button type="button" onclick="hideEditForm('employees')">Cancel</button>
@@ -134,6 +139,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
       <div class="revenue-edit-form" style="display: none;">
         <form action="models/updateBusiness.php" method="post">
           <input type="hidden" name="field" value="revenue">
+          <input type="hidden" name="id" value="<?=$business["id"]?>">
           <input type="text" name="newRevenue" placeholder="<?=$business['revenue']?>">
           <button type="submit">Save</button>
           <button type="button" onclick="hideEditForm('revenue')">Cancel</button>

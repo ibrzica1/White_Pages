@@ -126,4 +126,24 @@ if(isset($_POST['field']))
     header("Location: ../userBusiness.php");
     exit();
   }
+
+  if($fieldToUpdate === 'revenue')
+  {
+    if(!isset($_POST["newRevenue"]) || empty($_POST["newRevenue"]))
+      {
+        $_SESSION["message"] = "You didnt send revenue";
+        header("Location: ../userBusiness.php");
+        exit();
+      }
+    else
+      {
+        $newRevenue = $_POST["newRevenue"];
+      }
+
+    $business->updateRevenue($newRevenue,$businessId);
+
+    $_SESSION["message"] = "Revenue successfully chaged";
+    header("Location: ../userBusiness.php");
+    exit();
+  }
 }

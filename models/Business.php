@@ -60,7 +60,17 @@ class Business extends Database
       }
   }
 
-  
+  public function countUserBusiness($userId)
+  {
+    $userId = $this->connection->real_escape_string($userId);
+
+    $result = $this->connection->query("SELECT * FROM business 
+    WHERE user_id = '$userId' ");
+
+    $number = $result->num_rows;
+
+    return $number;
+  }
 
   public function registerBusiness($business_id,$user_id,$name,$address,$founded,$employees,$revenue)
   {

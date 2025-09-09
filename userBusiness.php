@@ -140,6 +140,14 @@ $userBusiness = $business->getBusinessByUserId($userId);
         </form>
       </div>
     </div>
+
+    <div>
+      <form action="models/deleteBusiness.php" method="post" onsubmit="return confirm('Are you sure you want do delete <?=$business['name']?>')">
+        <input type="hidden" name="delete" value="<?=$business["id"]?>">
+        <button>Delete</button>
+      </form>
+      
+    </div>
   <?php endforeach; ?>
 <?php endif; ?>
 

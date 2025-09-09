@@ -22,6 +22,13 @@ class Business extends Database
      return $business;
   }
 
+  public function deleteBusiness($id)
+  {
+    $id = $this->connection->real_escape_string($id);
+
+    $this->connection->query("DELETE FROM business WHERE id = '$id' ");
+  }
+
   public function checkBusinessIdExists($id)
   {
     $id = $this->connection->real_escape_string($id);
@@ -52,6 +59,8 @@ class Business extends Database
         return false;
       }
   }
+
+  
 
   public function registerBusiness($business_id,$user_id,$name,$address,$founded,$employees,$revenue)
   {

@@ -42,7 +42,7 @@ body{
 }
 
 .login:hover {
-  background-color: #3b59c5;
+  background-color: #1233aa;
 }
 
 .signup{
@@ -66,20 +66,51 @@ body{
 
 .user-header{
   display: flex;
-  flex-direction: column;
+  gap: 20px; 
+  align-items: center;
   padding-right: 40px;
-  padding-bottom: 20px;
+
 }
 
-.user-header p{
-  font-size: 24px;
-  padding: none;
+.user-logout {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    color: #2247CC;
 }
 
-.user-header a{
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  text-decoration: none;
-  color: #2247CC;
+.register-btn {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+    text-decoration-line: none;
+    width: 120px; 
+    height: 60px;
+    background-color: #2247CC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 6px;
+    margin-right: 20px;
+    text-align: center;
 }
 
+.register-btn:hover{
+  background-color: #1233aa;
+}
+
+.user-link {
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    font-weight: 400;
+    text-decoration: none;
+    color: #000;
+    padding-bottom: 10px;
+}
+
+.user-wrapper{
+  display: flex;
+  flex-direction: column;
+}

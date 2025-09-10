@@ -20,9 +20,28 @@ if(!isset($_SESSION["logged"]))
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>business Register</title>
+  <link rel="stylesheet" href="style/header.css">
 </head>
 
 <body>
+
+  <div class="header-main-container">
+      <div class="logo">
+        <a href="index.php">
+          <img src="images\White-Pages-Logo.png">
+        </a>
+      </div>
+
+      <div class="user-header">
+      <div>
+      <a href="businessInput.php" class="register-btn">Register<br>Business</a>
+     </div>
+     <div class="user-wrapper">
+      <a href="userPage.php" class="user-link"><?= $_SESSION["username"] ?></a>
+      <a href="models/logout.php" class="user-logout">Logout</a>
+     </div>
+    </div>
+  </div>
 
     <?php if(isset($_SESSION["message"])): ?>
       <?php $message = htmlspecialchars($_SESSION["message"]); ?>

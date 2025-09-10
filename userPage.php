@@ -26,26 +26,27 @@ $businessCount = $user->getNumberUserBusiness($userId);
 <head>
   
   <title>User Page</title>
-  <link rel="stylesheet" href="style/index.css">
+ <link rel="stylesheet" href="style/header.css"> 
 </head>
 
 <body>
 
-  <div class="header-main-container">
+<div class="header-main-container">
       <div class="logo">
         <a href="index.php">
           <img src="images\White-Pages-Logo.png">
         </a>
       </div>
-  <div class="user-header">
-    <div>
-      <a href="businessInput.php">Register Business</a>
+
+      <div class="user-header">
+      <div>
+      <a href="businessInput.php" class="register-btn">Register<br>Business</a>
+     </div>
+     <div class="user-wrapper">
+      <a href="userPage.php" class="user-link"><?= $_SESSION["username"] ?></a>
+      <a href="models/logout.php" class="user-logout">Logout</a>
+     </div>
     </div>
-    <div>
-      <a href="userPage.php"><?= $sessionUser["username"] ?></a>
-      <a href="logout.php">Logout</a>
-    </div>
-  </div>
 </div>
 
 <h2><?=$sessionUser["username"]?></h2>

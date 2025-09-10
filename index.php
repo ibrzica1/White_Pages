@@ -13,7 +13,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Index</title>
-  <link rel="stylesheet" href="style/index.css">
+  <link rel="stylesheet" href="style/header.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -32,11 +32,11 @@
     
     <div class="user-header">
       <div>
-      <a href="businessInput.php">Register Business</a>
+      <a href="businessInput.php" class="register-btn">Register<br>Business</a>
      </div>
-     <div>
-      <a href="userPage.php"><?= $_SESSION["username"] ?></a>
-      <a href="logout.php">Logout</a>
+     <div class="user-wrapper">
+      <a href="userPage.php" class="user-link"><?= $_SESSION["username"] ?></a>
+      <a href="models/logout.php" class="user-logout">Logout</a>
      </div>
     </div>
   <?php else: ?>

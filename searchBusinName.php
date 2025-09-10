@@ -35,21 +35,37 @@ $businessArray = $result->fetch_all(MYSQLI_ASSOC);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search By Business Name</title>
-
+  <link rel="stylesheet" href="style/header.css">
 </head>
 
 <body>
 
+  <div class="header-main-container">
+      <div class="logo">
+        <a href="index.php">
+          <img src="images\White-Pages-Logo.png">
+        </a>
+      </div>
+
   <?php if(isset($_SESSION["logged"])): ?>
-    <a href="index.php">Main Page</a>
-    <a href="businessInput.php">Register Business</a>
-    <p><?= $_SESSION["username"] ?></p>
-    <a href="logout.php">Logout</a>
-    <?php else: ?>
-      <a href="index.php">Main Page</a>
-      <a href="login.php">Log In</a>
-      <a href="signup.php">Sign Up</a>
+    
+    <div class="user-header">
+      <div>
+      <a href="businessInput.php" class="register-btn">Register<br>Business</a>
+     </div>
+     <div class="user-wrapper">
+      <a href="userPage.php" class="user-link"><?= $_SESSION["username"] ?></a>
+      <a href="models/logout.php" class="user-logout">Logout</a>
+     </div>
+    </div>
+  <?php else: ?>
+    <div class="login-signup">
+        <a href="login.php" class="login">Log In</a>
+        <a href="signup.php" class="signup">Sign Up</a>
+    </div>
   <?php endif; ?>
+      
+  </div>
 
  <?php if(empty($businessArray)):?>
   <h3>Search By Business Name</h3>

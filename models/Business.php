@@ -22,6 +22,17 @@ class Business extends Database
      return $business;
   }
 
+  public function getSearchBusinId($search)
+  {
+    $search = $this->connection->real_escape_string($search);
+
+    $result = $this->connection->query("SELECT * FROM business WHERE business_id LIKE '%$search%' ");
+
+    $businessArray = $result->fetch_all(MYSQLI_ASSOC);
+
+    return $businessArray;
+  }
+
   public function getSearchBusinAddress($search)
   {
     $search = $this->connection->real_escape_string($search);

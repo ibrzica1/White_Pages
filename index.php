@@ -55,20 +55,23 @@
       <?php unset($_SESSION["message"]); ?>
     <?php endif; ?>
 
-    <form action="searchBusinId.php" method="get">
+    <form action="searchBusiness.php" method="get">
       <h4>Search By Business Id</h4>
+      <input type="hidden" name="field" value="business-id">
       <input type="text" name="inputBusinId" placeholder="Business Id">
       <button>Search</button>
     </form>
 
-    <form action="searchBusinAddress.php" method="get">
+    <form action="searchBusiness.php" method="get">
       <h4>Search By Business Address</h4>
+      <input type="hidden" name="field" value="address">
       <input type="text" name="inputBusinAddress" placeholder="Business Address">
       <button>Search</button>
     </form>
 
-    <form action="searchBusinName.php" method="get">
+    <form action="searchBusiness.php" method="get">
       <h4>Search By Business Name</h4>
+      <input type="hidden" name="field" value="name">
       <input type="text" name="inputBusinName" placeholder="Business Name">
       <button>Search</button>
     </form>

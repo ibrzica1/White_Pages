@@ -44,6 +44,17 @@ class Business extends Database
     return $businessArray;
   }
 
+  public function getSearchBusinName($search)
+  {
+    $search = $this->connection->real_escape_string($search);
+
+    $result = $this->connection->query("SELECT * FROM business WHERE name LIKE '%$search%' ");
+
+    $businessArray = $result->fetch_all(MYSQLI_ASSOC);
+
+    return $businessArray;
+  }
+
   public function updateBusinessId($business_id,$id)
   {
     $business_id = $this->connection->real_escape_string($business_id);

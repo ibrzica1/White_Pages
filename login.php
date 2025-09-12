@@ -51,7 +51,7 @@ if(isset($_SESSION["logged"]))
 
        <?php if(isset($_SESSION["message"])): ?>
         <?php $message = htmlspecialchars($_SESSION["message"]); ?>
-        <p><?=  $message ?></p>
+        <p class="message"><?= $message ?></p>
         <?php unset($_SESSION["message"]); ?>
        <?php endif; ?>
 

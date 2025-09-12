@@ -98,3 +98,13 @@ html, body {
   cursor: pointer;
   background-color: #1233aa;
 }
+
+.message{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: red;
+  font-size: 26px;
+}

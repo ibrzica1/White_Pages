@@ -42,17 +42,18 @@ if(isset($_SESSION["logged"]))
     </div>
   </div>
 
-  <?php if(isset($_SESSION["message"])): ?>
-    <?php $message = htmlspecialchars($_SESSION["message"]); ?>
-    <p><?= $message ?></p>
-    <?php unset($_SESSION["message"]); ?>
-  <?php endif; ?>
-
   <div class="signup-body-container">
 
     <div>
 
+      <?php if(isset($_SESSION["message"])): ?>
+        <?php $message = htmlspecialchars($_SESSION["message"]); ?>
+        <p class="message"><?= $message ?></p>
+        <?php unset($_SESSION["message"]); ?>
+       <?php endif; ?>
+
       <form action="models/signupUser.php" method="POST" class="signup-form">
+        
         <h>Username</h>
         <div class="input">
           <img src="images\user (2).png">

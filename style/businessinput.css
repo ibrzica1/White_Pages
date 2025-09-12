@@ -5,7 +5,7 @@ html, body {
     padding: 0;
 }
 
-.signup-body-container{
+.business-input-body{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -15,7 +15,7 @@ html, body {
   min-height: 100%;
 }
 
-.signup-form{
+.business-input-form{
   display: flex;
   flex-direction: column;
   border: 1px solid #ccc;
@@ -26,21 +26,30 @@ html, body {
   width: 440px;
   min-height: 650px;
   max-height: 750px;
-  gap: 30px;
+  gap: 10px;
   margin-top: 40px;
 }
 
-.input{
+.business-input-form h{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+}
+
+.field{
   display: flex;
   align-items: center;
 }
 
-.input img{
+.field img{
   width: 46px;
   height: 46px;
 }
 
-.input input{
+.field input{
   height: 40px;
   width: 280px;
   border: 1px solid rgba(0,0,0,0.2);
@@ -49,19 +58,20 @@ html, body {
   font-size: 18px;
   font-family: "Playfair Display", serif;
   margin-left: 30px;
+  padding-right: 20px;
 }
 
-.input input:focus{
+.field input:focus{
   outline: none;
 }
 
-.register-btn-container{
+.register-container{
   display: flex;
   justify-content: center;
   margin-top: 14px;
 }
 
-.register-btn-container button{
+.register-container button{
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 16px;
@@ -77,15 +87,7 @@ html, body {
   border: none;
 }
 
-.signup-form h{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 24px;
-}
-.register-btn-container button:hover{
+.register-container button:hover{
   cursor: pointer;
   background-color: #1233aa;
 }

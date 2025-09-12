@@ -48,14 +48,40 @@ if(isset($_SESSION["logged"]))
     <?php unset($_SESSION["message"]); ?>
   <?php endif; ?>
 
-  <form action="models/signupUser.php" method="POST">
-      <input type="text" name="username" placeholder="Enter Username">
-      <input type="email" name="email" placeholder="Enter Email">
-      <input type="text" name="password" placeholder="Enter Password">
-      <input type="text" name="repeatPassword" placeholder="Repeat Password">
-      <button>Register</button>
-  </form>  
+  <div class="signup-body-container">
 
+    <div>
+
+      <form action="models/signupUser.php" method="POST" class="signup-form">
+        <h>Username</h>
+        <div class="input">
+          <img src="images\user (2).png">
+          <input type="text" name="username" placeholder="Enter Username">
+        </div>
+        <h>Email</h>
+        <div class="input">
+          <img src="images\mail.png">
+          <input type="email" name="email" placeholder="Enter Email">
+        </div>
+        <h>Password</h>
+        <div class="input">
+          <img src="images\password.png">
+          <input type="text" name="password" placeholder="Enter Password">
+        </div>
+        <h>Repeat Password</h>
+        <div class="input">
+          <img src="images\security.png">
+          <input type="text" name="repeatPassword" placeholder="Repeat Password">
+        </div>
+        <div class="register-btn-container">
+          <button>Register</button>
+        </div>
+        
+      </form>  
+
+    </div>
+
+  </div>
   
 </body>
 

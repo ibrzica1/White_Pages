@@ -1,0 +1,91 @@
+html, body {
+    font-family: "Playfair Display", serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.signup-body-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(180deg, #ffffff, #d3d3d3);
+  min-height: 100%;
+}
+
+.signup-form{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  background-color: white;
+  box-shadow: 10px 20px 20px rgba(0,0,0,0.1);
+  padding: 20px 40px;
+  border-radius: 26px;
+  width: 440px;
+  min-height: 650px;
+  max-height: 750px;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.input{
+  display: flex;
+  align-items: center;
+}
+
+.input img{
+  width: 46px;
+  height: 46px;
+}
+
+.input input{
+  height: 40px;
+  width: 280px;
+  border: 1px solid rgba(0,0,0,0.2);
+  padding-left: 30px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-family: "Playfair Display", serif;
+  margin-left: 30px;
+}
+
+.input input:focus{
+  outline: none;
+}
+
+.register-btn-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.register-btn-container button{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration-line: none;
+  width: 160px;
+  height: 60px;
+  background-color: #2247CC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 30px;
+  border: none;
+}
+
+.signup-form h{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 24px;
+}
+.register-btn-container button:hover{
+  cursor: pointer;
+  background-color: #1233aa;
+}

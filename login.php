@@ -22,6 +22,10 @@ if(isset($_SESSION["logged"]))
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="style/header.css">
+  <link rel="stylesheet" href="style/login.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -39,17 +43,39 @@ if(isset($_SESSION["logged"]))
     </div>
   </div>
   
-  <?php if(isset($_SESSION["message"])): ?>
-    <?php $message = htmlspecialchars($_SESSION["message"]); ?>
-    <p><?=  $message ?></p>
-    <?php unset($_SESSION["message"]); ?>
-  <?php endif; ?>
+ 
 
-  <form action="models/loginUser.php" method="POST">
-      <input type="text" name="email" placeholder="Email">
-      <input type="text" name="password" placeholder="Password">
-      <button>Login</button>
-  </form>
+  <div class="login-body-container">
+
+    <div>
+
+       <?php if(isset($_SESSION["message"])): ?>
+        <?php $message = htmlspecialchars($_SESSION["message"]); ?>
+        <p><?=  $message ?></p>
+        <?php unset($_SESSION["message"]); ?>
+       <?php endif; ?>
+
+      <form action="models/loginUser.php" method="POST" class="login-form">
+        <h>Email</h>
+        <div class="email">
+          <img src="images\mail.png">
+          <input type="text" name="email" placeholder="Email">
+        </div>
+        <h>Password</h>
+        <div class="password">
+          <img src="images\password.png">
+          <input type="text" name="password" placeholder="Password">
+        </div>
+        <div class="login-btn-container">
+          <button class="login-btn">Login</button>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+  
   
 </body>
 

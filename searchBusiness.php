@@ -80,6 +80,10 @@ else
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search By Business <?=$searchType?></title>
   <link rel="stylesheet" href="style/header.css">
+  <link rel="stylesheet" href="style/searchBusiness.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -112,19 +116,53 @@ else
   </div>
 
  <?php if(empty($businessArray)):?>
-  <h3>Search By Business <?=$searchType?></h3>
-    <h4>Results for %<?=$input?>%: <span>No Results</span></h4>
+
+  <div class="search-busin-body">
+    <h class="search-type">Search By Business <?=$searchType?></h>
+    <h class="search-found"><?=$input?> <span class="span">No business found</span></h>
+  </div>
+  
  <?php else:?>
-  <h3>Search By Business <?=$searchType?></h3>
-    <h4>Results for %<?=$input?>%:</h4>
-    <?php foreach($businessArray as $business):?>
-      <p>Business ID: <?=$business['business_id']?></p>
-      <p>Name: <?=$business['name']?></p>
-      <p>Address: <?=$business['address']?></p>
-      <p>Founded: <?=$business['founded']?></p>
-      <p>Employees: <?=$business['employees']?></p>
-      <p>Revenue: <?=$business['revenue']?></p>
-    <?php endforeach;?>
+
+  <div class="search-busin-body">
+    <h class="search-type">Search By Business <?=$searchType?></h>
+    <h class="search-found"><?=$input?> <span class="span"><span class="span-number"><?=count($businessArray)?></span> business found</span></h>
+
+      <?php foreach($businessArray as $business):?>
+
+      <div class="business-container">
+        <div class="name-container">
+          <img src="images\briefcase.png">
+          <p>Name: <span><?=$business['name']?></span></p>
+        </div>
+        <div class="attribute">
+          <img src="images\fingerprint.png">
+          <p>Business ID: <span><?=$business['business_id']?></span></p>
+        </div>
+        <div class="attribute">
+          <img src="images\location.png">
+          <p>Address: <span><?=$business['address']?></span></p>
+        </div>
+        <div class="attribute">
+          <img src="images\pantheon.png">
+          <p>Founded: <span><?=$business['founded']?></span></p>
+        </div>        
+        <div class="attribute">
+          <img src="images\employee.png">
+          <p>Employees: <span><?=$business['employees']?></span></p>
+        </div>
+        <div class="attribute">
+          <img src="images\salary.png">
+          <p>Revenue: <span><?=$business['revenue']?></span></p>
+        </div>
+        
+
+      </div>
+
+      <?php endforeach;?>
+
+  </div>
+    
  <?php endif;?>
 
 </body>

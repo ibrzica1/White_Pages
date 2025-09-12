@@ -13,6 +13,10 @@ body{
   background-color: rgb(255, 255, 255);
 }
 
+.logo{
+  margin-left: 20px;
+}
+
 .logo img{
   width: 150px;
   height: 70px;

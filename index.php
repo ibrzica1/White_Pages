@@ -14,6 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Index</title>
   <link rel="stylesheet" href="style/header.css">
+  <link rel="stylesheet" href="style/index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -47,34 +48,48 @@
   <?php endif; ?>
       
   </div>
-  <div>
 
-    <?php if(isset($_SESSION["message"])): ?>
+  <div class="index-body-container">
+
+  <p class="description">Find Business, their address, revenue and more</p>
+
+   <div class="index-search-container">
+
+     <?php if(isset($_SESSION["message"])): ?>
       <?php $message = htmlspecialchars($_SESSION["message"]); ?>
       <p><?=  $message ?></p>
       <?php unset($_SESSION["message"]); ?>
-    <?php endif; ?>
+     <?php endif; ?>
 
     <form action="searchBusiness.php" method="get">
-      <h4>Search By Business Id</h4>
-      <input type="hidden" name="field" value="business-id">
-      <input type="text" name="inputBusinId" placeholder="Business Id">
-      <button>Search</button>
+      <p class="search-type">Search By Business Id</p>
+      <div class="search-wrapper">
+        <input type="hidden" name="field" value="business-id">
+        <input type="text" name="inputBusinId" class="search-input" placeholder="Business Id">
+        <button class="search-btn">Search</button>
+      </div>
     </form>
 
     <form action="searchBusiness.php" method="get">
-      <h4>Search By Business Address</h4>
-      <input type="hidden" name="field" value="address">
-      <input type="text" name="inputBusinAddress" placeholder="Business Address">
-      <button>Search</button>
+      <p class="search-type">Search By Business Address</p>
+      <div class="search-wrapper">
+        <input type="hidden" name="field" value="address">
+        <input type="text" name="inputBusinAddress" class="search-input" placeholder="Business Address">
+        <button class="search-btn">Search</button>
+      </div>
     </form>
 
     <form action="searchBusiness.php" method="get">
-      <h4>Search By Business Name</h4>
-      <input type="hidden" name="field" value="name">
-      <input type="text" name="inputBusinName" placeholder="Business Name">
-      <button>Search</button>
+      <p class="search-type">Search By Business Name</p>
+      <div class="search-wrapper">
+        <input type="hidden" name="field" value="name">
+        <input type="text" name="inputBusinName" class="search-input" placeholder="Business Name">
+        <button class="search-btn">Search</button>
+      </div>
     </form>
+
+   </div>
+
   </div>
 
 </body>

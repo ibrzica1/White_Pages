@@ -33,11 +33,26 @@ if(isset($_POST['field']))
         $newUsername = $_POST["newUsername"];
       }
 
+    $beforeName = $user->getUserAtribute($fieldToUpdate,$userId);
+
     $user->updateUsername($newUsername,$userId);
 
-    $_SESSION["message"] = "Username successfully chaged";
-    header("Location: ../userPage.php");
-    exit();
+    $afterName = $user->getUserAtribute($fieldToUpdate,$userId);
+
+    if($afterName !== $beforeName)
+    {
+      $_SESSION["message"] = "Username successfully chaged";
+      header("Location: ../userPage.php");
+      exit();
+    }
+    else
+    {
+      $_SESSION["message"] = "Username wasnt chaged";
+      header("Location: ../userPage.php");
+      exit();
+    }
+
+    
   }
 
   if($fieldToUpdate === 'email')
@@ -52,12 +67,24 @@ if(isset($_POST['field']))
       {
         $newEmail = $_POST["newEmail"];
       }
+    $beforeEmail = $user->getUserAtribute($fieldToUpdate,$userId);
 
     $user->updateEmail($newEmail,$userId);
 
-    $_SESSION["message"] = "Email successfully chaged";
-    header("Location: ../userPage.php");
-    exit();
+    $afterEmail = $user->getUserAtribute($fieldToUpdate,$userId);
+
+    if($afterEmail !== $beforeEmail)
+    {
+      $_SESSION["message"] = "Email successfully chaged";
+      header("Location: ../userPage.php");
+      exit();
+    }
+    else
+    {
+      $_SESSION["message"] = "Email wasnt chaged";
+      header("Location: ../userPage.php");
+      exit();
+    }
   }
 
   if($fieldToUpdate === 'password')

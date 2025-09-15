@@ -88,6 +88,18 @@ class User extends Database
     return $password['password'];
   }
 
+  public function getUserAtribute($atribute,$id)
+  {
+    $atribute = $this->connection->real_escape_string($atribute);
+    $id = $this->connection->real_escape_string($id);
+
+    $result = $this->connection->query("SELECT $atribute FROM user WHERE id = '$id' ");
+
+    $value = $result->fetch_assoc();
+
+    return $value["$atribute"];
+  }
+
   public function deleteUser($id)
   {
     $id = $this->connection->real_escape_string($id);

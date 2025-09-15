@@ -1,0 +1,181 @@
+html, body {
+  font-family: "Playfair Display", serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.user-business-body{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(180deg, #ffffff, #d3d3d3);
+  min-height: 100%;
+}
+
+.user-business{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  background-color: white;
+  box-shadow: 10px 20px 20px rgba(0,0,0,0.1);
+  padding: 20px 40px;
+  border-radius: 26px;
+  width: 460px;
+  min-height: 650px;
+  max-height: 750px;
+  margin-top: 40px;
+}
+
+.business_id-display,
+.name-display,
+.address-display,
+.founded-display,
+.employees-display,
+.revenue-display{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-business img{
+  width: 46px;
+  height: 46px;
+}
+
+.user-business p{
+  font-size: 22px;
+  font-weight: 200;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.user-business h3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+  font-weight: 200;
+}
+
+.user-business input{
+  height: 40px;
+  width: 200px;
+  border: 1px solid rgba(0,0,0,0.2);
+  padding-left: 30px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-family: "Playfair Display", serif;
+  margin-left: 10px;
+}
+
+.edit-btn{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  width: 80px;
+  height: 40px;
+  border: none;
+  background-color: #2247CC;
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto; 
+}
+
+.edit-btn:hover{
+  cursor: pointer;
+  background-color: #1233aa;
+}
+
+.delete-btn-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.delete-btn-container button{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration-line: none;
+  width: 160px;
+  height: 50px;
+  background-color: #2247CC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 30px;
+  border: none;
+}
+
+.delete-btn-container button:hover{
+  cursor: pointer;
+  background-color: #1233aa;
+}
+
+.save-btn{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration-line: none;
+  width: 70px;
+  height: 46px;
+  background-color: #2247CC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  margin-left: 10px;
+}
+
+.save-btn:hover{
+  cursor: pointer;
+  background-color: #1233aa;
+}
+
+.cancel-btn{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration-line: none;
+  width: 90px;
+  height: 46px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2247CC;
+  border-radius: 8px;
+  border: none;
+  margin-left: 10px;
+}
+
+.cancel-btn:hover{
+  cursor: pointer;
+  background-color: #eeeeee;
+}
+
+.revenue-form,
+.employees-form,
+.founded-form,
+.address-form,
+.name-form,
+.business_id-form{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 14px;
+}

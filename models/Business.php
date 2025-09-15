@@ -55,6 +55,17 @@ class Business extends Database
     return $businessArray;
   }
 
+  public function getBusinAtribute($atribute, $id)
+  {
+    $atribute = $this->connection->real_escape_string($atribute);
+    $id = $this->connection->real_escape_string($id);
+
+    $result = $this->connection->query("SELECT $atribute FROM business WHERE id = '$id' ");
+    $value = $result->fetch_assoc();
+
+    return $value["$atribute"];
+  }
+
   public function updateBusinessId($business_id,$id)
   {
     $business_id = $this->connection->real_escape_string($business_id);

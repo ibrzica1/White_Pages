@@ -15,6 +15,13 @@ html, body {
   min-height: 100%;
 }
 
+.message{
+  font-size: 26px;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+
 .user-business{
   display: flex;
   flex-direction: column;

@@ -40,11 +40,24 @@ if(isset($_POST['field']))
         $newBusiness_id = $_POST["newBusiness_id"];
       }
 
+    $beforeId = $business->getBusinAtribute($fieldToUpdate,$businessId);
+
     $business->updateBusinessId($newBusiness_id,$businessId);
 
-    $_SESSION["message"] = "Username successfully chaged";
-    header("Location: ../userBusiness.php");
-    exit();
+    $afterId = $business->getBusinAtribute($fieldToUpdate,$businessId);
+    
+    if($afterId !== $beforeId)
+    {
+      $_SESSION["message"] = "Business Id successfully chaged";
+      header("Location: ../userBusiness.php");
+      exit();
+    }
+    else
+    {
+      $_SESSION["message"] = "Business Id wasnt chaged";
+      header("Location: ../userBusiness.php");
+      exit();
+    }
   }
 
   if($fieldToUpdate === 'name')
@@ -60,11 +73,24 @@ if(isset($_POST['field']))
         $newname = $_POST["newName"];
       }
 
+    $beforeName = $business->getBusinAtribute($fieldToUpdate,$businessId);
+
     $business->updateName($newname,$businessId);
 
-    $_SESSION["message"] = "Name successfully chaged";
-    header("Location: ../userBusiness.php");
-    exit();
+    $afterName = $business->getBusinAtribute($fieldToUpdate,$businessId);
+
+    if($afterName !== $beforeName)
+    {
+      $_SESSION["message"] = "Name successfully chaged";
+      header("Location: ../userBusiness.php");
+      exit();
+    }
+    else
+    {
+      $_SESSION["message"] = "Name wasnt chaged";
+      header("Location: ../userBusiness.php");
+      exit();
+    }
   }
 
   if($fieldToUpdate === 'address')
@@ -80,11 +106,24 @@ if(isset($_POST['field']))
         $newAddress = $_POST["newAddress"];
       }
 
+    $beforeAddress = $business->getBusinAtribute($fieldToUpdate,$businessId);
+
     $business->updateAddress($newAddress,$businessId);
 
-    $_SESSION["message"] = "Address successfully chaged";
-    header("Location: ../userBusiness.php");
-    exit();
+    $afterAddress = $business->getBusinAtribute($fieldToUpdate,$businessId);
+
+    if($afterAddress !== $beforeAddress)
+    {
+      $_SESSION["message"] = "Address successfully chaged";
+      header("Location: ../userBusiness.php");
+      exit();
+    }
+    else
+    {
+      $_SESSION["message"] = "Address wasnt chaged";
+      header("Location: ../userBusiness.php");
+      exit();
+    }
   }
 
   if($fieldToUpdate === 'founded')
@@ -100,11 +139,24 @@ if(isset($_POST['field']))
         $newFounded = $_POST["newFounded"];
       }
 
+    $beforeFounded = $business->getBusinAtribute($fieldToUpdate,$businessId);
+
     $business->updateFounded($newFounded,$businessId);
 
-    $_SESSION["message"] = "Founded successfully chaged";
-    header("Location: ../userBusiness.php");
-    exit();
+    $afterFounded = $business->getBusinAtribute($fieldToUpdate,$businessId);
+
+    if($afterFounded !== $beforeFounded)
+    {
+      $_SESSION["message"] = "Founded successfully chaged";
+      header("Location: ../userBusiness.php");
+      exit();
+    }
+    else
+    {
+      $_SESSION["message"] = "Founded wasnt chaged";
+      header("Location: ../userBusiness.php");
+      exit();
+    }
   }
 
   if($fieldToUpdate === 'employees')
@@ -120,11 +172,24 @@ if(isset($_POST['field']))
         $newEmployees = $_POST["newEmployees"];
       }
 
+    $beforeEmployees = $business->getBusinAtribute($fieldToUpdate,$businessId);
+
     $business->updateEmployees($newEmployees,$businessId);
 
-    $_SESSION["message"] = "Employees successfully chaged";
-    header("Location: ../userBusiness.php");
-    exit();
+    $afterEmployees = $business->getBusinAtribute($fieldToUpdate,$businessId);
+
+    if($afterEmployees !== $beforeEmployees)
+    {
+      $_SESSION["message"] = "Employees successfully chaged";
+      header("Location: ../userBusiness.php");
+      exit();
+    }
+    else
+    {
+      $_SESSION["message"] = "Employees wasnt chaged";
+      header("Location: ../userBusiness.php");
+      exit();
+    }
   }
 
   if($fieldToUpdate === 'revenue')
@@ -140,10 +205,23 @@ if(isset($_POST['field']))
         $newRevenue = $_POST["newRevenue"];
       }
 
+    $beforeRevenue = $business->getBusinAtribute($fieldToUpdate,$businessId);
+
     $business->updateRevenue($newRevenue,$businessId);
 
-    $_SESSION["message"] = "Revenue successfully chaged";
-    header("Location: ../userBusiness.php");
-    exit();
+    $afterRevenue = $business->getBusinAtribute($fieldToUpdate,$businessId);
+
+    if($afterRevenue !== $beforeRevenue)
+    {
+      $_SESSION["message"] = "Revenue successfully chaged";
+      header("Location: ../userBusiness.php");
+      exit();
+    }
+    else
+    {
+      $_SESSION["message"] = "Revenue wasnt chaged";
+      header("Location: ../userBusiness.php");
+      exit();
+    }
   }
 }

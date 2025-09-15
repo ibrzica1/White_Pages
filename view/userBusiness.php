@@ -38,7 +38,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
 
   <div class="header-main-container">
       <div class="logo">
-        <a href="index.php">
+        <a href="../index.php">
           <img src="../images\White-Pages-Logo.png">
         </a>
       </div>

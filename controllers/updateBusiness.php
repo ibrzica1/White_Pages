@@ -5,17 +5,17 @@ if(session_status() == PHP_SESSION_NONE)
   session_start();
 }
 
-require_once "Business.php";
+require_once "../models/Business.php";
 
 if (!isset($_SESSION['logged'])) {
-    header("Location: ../login.php");
+    header("Location: ../view/login.php");
     exit();
 }
 
 if(!isset($_POST["id"]) || empty($_POST["id"]))
 {
   $_SESSION["message"] = "You didnt send id";
-  header("Location: ../userBusiness.php");
+  header("Location: ../view/userBusiness.php");
   exit();
 }
 
@@ -32,7 +32,7 @@ if(isset($_POST['field']))
     if(!isset($_POST["newBusiness_id"]) || empty($_POST["newBusiness_id"]))
       {
         $_SESSION["message"] = "You didnt send business id";
-        header("Location: ../userBusiness.php");
+        header("Location: ../view/userBusiness.php");
         exit();
       }
     else
@@ -49,13 +49,13 @@ if(isset($_POST['field']))
     if($afterId !== $beforeId)
     {
       $_SESSION["message"] = "Business Id successfully chaged";
-      header("Location: ../userBusiness.php");
+      header("Location: ../view/userBusiness.php");
       exit();
     }
     else
     {
       $_SESSION["message"] = "Business Id wasnt chaged";
-      header("Location: ../userBusiness.php");
+      header("Location: ../view/userBusiness.php");
       exit();
     }
   }
@@ -65,7 +65,7 @@ if(isset($_POST['field']))
     if(!isset($_POST["newName"]) || empty($_POST["newName"]))
       {
         $_SESSION["message"] = "You didnt send name";
-        header("Location: ../userBusiness.php");
+        header("Location: ../view/userBusiness.php");
         exit();
       }
     else
@@ -82,13 +82,13 @@ if(isset($_POST['field']))
     if($afterName !== $beforeName)
     {
       $_SESSION["message"] = "Name successfully chaged";
-      header("Location: ../userBusiness.php");
+      header("Location: ../view/userBusiness.php");
       exit();
     }
     else
     {
       $_SESSION["message"] = "Name wasnt chaged";
-      header("Location: ../userBusiness.php");
+      header("Location: ../view/userBusiness.php");
       exit();
     }
   }
@@ -98,7 +98,7 @@ if(isset($_POST['field']))
     if(!isset($_POST["newAddress"]) || empty($_POST["newAddress"]))
       {
         $_SESSION["message"] = "You didnt send address";
-        header("Location: ../userBusiness.php");
+        header("Location: ../view/userBusiness.php");
         exit();
       }
     else
@@ -115,13 +115,13 @@ if(isset($_POST['field']))
     if($afterAddress !== $beforeAddress)
     {
       $_SESSION["message"] = "Address successfully chaged";
-      header("Location: ../userBusiness.php");
+      header("Location: ../view/userBusiness.php");
       exit();
     }
     else
     {
       $_SESSION["message"] = "Address wasnt chaged";
-      header("Location: ../userBusiness.php");
+      header("Location: ../view/userBusiness.php");
       exit();
     }
   }
@@ -131,7 +131,7 @@ if(isset($_POST['field']))
     if(!isset($_POST["newFounded"]) || empty($_POST["newFounded"]))
       {
         $_SESSION["message"] = "You didnt send founded";
-        header("Location: ../userBusiness.php");
+        header("Location: ../view/userBusiness.php");
         exit();
       }
     else
@@ -148,13 +148,13 @@ if(isset($_POST['field']))
     if($afterFounded !== $beforeFounded)
     {
       $_SESSION["message"] = "Founded successfully chaged";
-      header("Location: ../userBusiness.php");
+      header("Location: ../view/userBusiness.php");
       exit();
     }
     else
     {
       $_SESSION["message"] = "Founded wasnt chaged";
-      header("Location: ../userBusiness.php");
+      header("Location: ../view/userBusiness.php");
       exit();
     }
   }
@@ -164,7 +164,7 @@ if(isset($_POST['field']))
     if(!isset($_POST["newEmployees"]) || empty($_POST["newEmployees"]))
       {
         $_SESSION["message"] = "You didnt send employees";
-        header("Location: ../userBusiness.php");
+        header("Location: ../view/userBusiness.php");
         exit();
       }
     else
@@ -181,13 +181,13 @@ if(isset($_POST['field']))
     if($afterEmployees !== $beforeEmployees)
     {
       $_SESSION["message"] = "Employees successfully chaged";
-      header("Location: ../userBusiness.php");
+      header("Location: ../view/userBusiness.php");
       exit();
     }
     else
     {
       $_SESSION["message"] = "Employees wasnt chaged";
-      header("Location: ../userBusiness.php");
+      header("Location: ../view/userBusiness.php");
       exit();
     }
   }
@@ -197,7 +197,7 @@ if(isset($_POST['field']))
     if(!isset($_POST["newRevenue"]) || empty($_POST["newRevenue"]))
       {
         $_SESSION["message"] = "You didnt send revenue";
-        header("Location: ../userBusiness.php");
+        header("Location: ../view/userBusiness.php");
         exit();
       }
     else
@@ -214,13 +214,13 @@ if(isset($_POST['field']))
     if($afterRevenue !== $beforeRevenue)
     {
       $_SESSION["message"] = "Revenue successfully chaged";
-      header("Location: ../userBusiness.php");
+      header("Location: ../view/userBusiness.php");
       exit();
     }
     else
     {
       $_SESSION["message"] = "Revenue wasnt chaged";
-      header("Location: ../userBusiness.php");
+      header("Location: ../view/userBusiness.php");
       exit();
     }
   }

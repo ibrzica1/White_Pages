@@ -7,7 +7,7 @@ if(session_status() == PHP_SESSION_NONE)
 
 if(isset($_SESSION["logged"]))
 {
-  header("Location: index.php");
+  header("Location: ../index.php");
   exit();
 }
 
@@ -21,8 +21,8 @@ if(isset($_SESSION["logged"]))
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <link rel="stylesheet" href="style/header.css">
-  <link rel="stylesheet" href="style/login.css">
+  <link rel="stylesheet" href="../style/header.css">
+  <link rel="stylesheet" href="../style/login.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -32,8 +32,8 @@ if(isset($_SESSION["logged"]))
 
   <div class="header-main-container">
       <div class="logo">
-        <a href="index.php">
-          <img src="images\White-Pages-Logo.png">
+        <a href="../index.php">
+          <img src="../images\White-Pages-Logo.png">
         </a>
       </div>
 
@@ -55,15 +55,15 @@ if(isset($_SESSION["logged"]))
 
     <div>
 
-      <form action="models/loginUser.php" method="POST" class="login-form">
+      <form action="../controllers/loginUser.php" method="POST" class="login-form">
         <h>Email</h>
         <div class="email">
-          <img src="images\mail.png">
+          <img src="../images\mail.png">
           <input type="text" name="email" placeholder="Email">
         </div>
         <h>Password</h>
         <div class="password">
-          <img src="images\password.png">
+          <img src="../images\password.png">
           <input type="text" name="password" placeholder="Password">
         </div>
         <div class="login-btn-container">

@@ -5,13 +5,13 @@ if(session_status() == PHP_SESSION_NONE)
   session_start();
 }
 
-require_once "User.php";
+require_once "../models/User.php";
 
 $user = new User();
 $userId = $_SESSION["id"];
 
 if (!isset($_SESSION['logged'])) {
-    header("Location: ../login.php");
+    header("Location: ../view/login.php");
     exit();
 }
 
@@ -25,7 +25,7 @@ if(isset($_POST['field']))
     if(!isset($_POST["newUsername"]) || empty($_POST["newUsername"]))
       {
         $_SESSION["message"] = "You didnt send username";
-        header("Location: ../userPage.php");
+        header("Location: ../view/userPage.php");
         exit();
       }
     else
@@ -42,13 +42,13 @@ if(isset($_POST['field']))
     if($afterName !== $beforeName)
     {
       $_SESSION["message"] = "Username successfully chaged";
-      header("Location: ../userPage.php");
+      header("Location: ../view/userPage.php");
       exit();
     }
     else
     {
       $_SESSION["message"] = "Username wasnt chaged";
-      header("Location: ../userPage.php");
+      header("Location: ../view/userPage.php");
       exit();
     }
 
@@ -60,7 +60,7 @@ if(isset($_POST['field']))
     if(!isset($_POST["newEmail"]) || empty($_POST["newEmail"]))
       {
         $_SESSION["message"] = "You didnt send email";
-        header("Location: ../userPage.php");
+        header("Location: ../view/userPage.php");
         exit();
       }
     else
@@ -76,13 +76,13 @@ if(isset($_POST['field']))
     if($afterEmail !== $beforeEmail)
     {
       $_SESSION["message"] = "Email successfully chaged";
-      header("Location: ../userPage.php");
+      header("Location: ../view/userPage.php");
       exit();
     }
     else
     {
       $_SESSION["message"] = "Email wasnt chaged";
-      header("Location: ../userPage.php");
+      header("Location: ../view/userPage.php");
       exit();
     }
   }
@@ -92,7 +92,7 @@ if(isset($_POST['field']))
     if(!isset($_POST["oldPassword"]) || empty($_POST["oldPassword"]))
     {
       $_SESSION["message"] = "You didnt send old Password";
-      header("Location: ../userPage.php");
+      header("Location: ../view/userPage.php");
       exit();
     }
     else
@@ -106,14 +106,14 @@ if(isset($_POST['field']))
     if(!password_verify($oldPassword,$passwordFromDatabase))
     {
       $_SESSION["message"] = "Old password is not correct";
-      header("Location: ../userPage.php");
+      header("Location: ../view/userPage.php");
       exit();
     }
 
     if(!isset($_POST["newPassword"]) || empty($_POST["newPassword"]))
     {
       $_SESSION["message"] = "You didnt send new Password";
-      header("Location: ../userPage.php");
+      header("Location: ../view/userPage.php");
       exit();
     }
     else
@@ -124,7 +124,7 @@ if(isset($_POST['field']))
     if(!isset($_POST["repeatPassword"]) || empty($_POST["repeatPassword"]))
     {
       $_SESSION["message"] = "You didnt send repeat Password";
-      header("Location: ../userPage.php");
+      header("Location: ../view/userPage.php");
       exit();
     }
     else
@@ -135,14 +135,14 @@ if(isset($_POST['field']))
     if($newPassword !== $repeatPassword)
     {
       $_SESSION["message"] = "New Password and Repeat Password dont match";
-      header("Location: ../userPage.php");
+      header("Location: ../view/userPage.php");
       exit();
     }
 
     $user->updatePassword($newPassword,$userId);
 
     $_SESSION["message"] = "Password successfully chaged";
-    header("Location: ../userPage.php");
+    header("Location: ../view/userPage.php");
     exit();
 
   }

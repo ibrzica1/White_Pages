@@ -4,9 +4,9 @@ require_once "Database.php";
 
 class User extends Database
 {
-  public $username;
-  public $email;
-  public $password;
+  private $username;
+  private $email;
+  private $password;
 
   public function checkUsernameExists($name)
   {

@@ -5,7 +5,7 @@ if(session_status() == PHP_SESSION_NONE)
     session_start();
   }
 
-require_once "models/Business.php";
+require_once "../models/Business.php";
 
 $business = new Business();
 
@@ -18,7 +18,7 @@ if(isset($_GET["field"]))
     if(!isset($_GET["inputBusinId"]) || empty($_GET["inputBusinId"]))
       {
         $_SESSION["message"] = "You didnt send input Business Id";
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
       }
       else
@@ -35,7 +35,7 @@ if(isset($_GET["field"]))
     if(!isset($_GET["inputBusinAddress"]) || empty($_GET["inputBusinAddress"]))
       {
         $_SESSION["message"] = "You didnt send input Business Address";
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
       }
       else
@@ -52,7 +52,7 @@ if(isset($_GET["field"]))
     if(!isset($_GET["inputBusinName"]) || empty($_GET["inputBusinName"]))
       {
         $_SESSION["message"] = "You didnt send input Business Name";
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
       }
       else
@@ -67,7 +67,7 @@ if(isset($_GET["field"]))
 else
 {
   $_SESSION["message"] = "You didnt send hidden input field";
-  header("Location: index.php");
+  header("Location: ../index.php");
   exit();
 }
 
@@ -79,8 +79,8 @@ else
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search By Business <?=$searchType?></title>
-  <link rel="stylesheet" href="style/header.css">
-  <link rel="stylesheet" href="style/searchBusiness.css">
+  <link rel="stylesheet" href="../style/header.css">
+  <link rel="stylesheet" href="../style/searchBusiness.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -90,8 +90,8 @@ else
 
 <div class="header-main-container">
       <div class="logo">
-        <a href="index.php">
-          <img src="images\White-Pages-Logo.png">
+        <a href="../index.php">
+          <img src="../images\White-Pages-Logo.png">
         </a>
       </div>
 
@@ -103,7 +103,7 @@ else
      </div>
      <div class="user-wrapper">
       <a href="userPage.php" class="user-link"><?= $_SESSION["username"] ?></a>
-      <a href="models/logout.php" class="user-logout">Logout</a>
+      <a href="../controllers/logout.php" class="user-logout">Logout</a>
      </div>
     </div>
   <?php else: ?>
@@ -132,27 +132,27 @@ else
 
       <div class="business-container">
         <div class="name-container">
-          <img src="images\briefcase.png">
+          <img src="../images\briefcase.png">
           <p>Name: <span><?=$business['name']?></span></p>
         </div>
         <div class="attribute">
-          <img src="images\fingerprint.png">
+          <img src="../images\fingerprint.png">
           <p>Business ID: <span><?=$business['business_id']?></span></p>
         </div>
         <div class="attribute">
-          <img src="images\location.png">
+          <img src="../images\location.png">
           <p>Address: <span><?=$business['address']?></span></p>
         </div>
         <div class="attribute">
-          <img src="images\pantheon.png">
+          <img src="../images\pantheon.png">
           <p>Founded: <span><?=$business['founded']?></span></p>
         </div>        
         <div class="attribute">
-          <img src="images\employee.png">
+          <img src="../images\employee.png">
           <p>Employees: <span><?=$business['employees']?></span></p>
         </div>
         <div class="attribute">
-          <img src="images\salary.png">
+          <img src="../images\salary.png">
           <p>Revenue: <span><?=$business['revenue']?></span></p>
         </div>
         

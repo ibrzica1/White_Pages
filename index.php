@@ -33,17 +33,17 @@
     
     <div class="user-header">
       <div>
-      <a href="businessInput.php" class="register-btn">Register<br>Business</a>
+      <a href="view/businessInput.php" class="register-btn">Register<br>Business</a>
      </div>
      <div class="user-wrapper">
-      <a href="userPage.php" class="user-link"><?= $_SESSION["username"] ?></a>
-      <a href="models/logout.php" class="user-logout">Logout</a>
+      <a href="view/userPage.php" class="user-link"><?= $_SESSION["username"] ?></a>
+      <a href="controllers/logout.php" class="user-logout">Logout</a>
      </div>
     </div>
   <?php else: ?>
     <div class="login-signup">
-        <a href="login.php" class="login">Log In</a>
-        <a href="signup.php" class="signup">Sign Up</a>
+        <a href="view/login.php" class="login">Log In</a>
+        <a href="view/signup.php" class="signup">Sign Up</a>
     </div>
   <?php endif; ?>
       
@@ -61,7 +61,7 @@
 
    <div class="index-search-container">
 
-    <form action="searchBusiness.php" method="get">
+    <form action="view/searchBusiness.php" method="get">
       <p class="search-type">Search By Business Id</p>
       <div class="search-wrapper">
         <input type="hidden" name="field" value="business-id">
@@ -70,7 +70,7 @@
       </div>
     </form>
 
-    <form action="searchBusiness.php" method="get">
+    <form action="view/searchBusiness.php" method="get">
       <p class="search-type">Search By Business Address</p>
       <div class="search-wrapper">
         <input type="hidden" name="field" value="address">
@@ -79,7 +79,7 @@
       </div>
     </form>
 
-    <form action="searchBusiness.php" method="get">
+    <form action="view/searchBusiness.php" method="get">
       <p class="search-type">Search By Business Name</p>
       <div class="search-wrapper">
         <input type="hidden" name="field" value="name">

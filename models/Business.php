@@ -4,13 +4,13 @@ require_once "Database.php";
 
 class Business extends Database
 {
-  public $business_id;
-  public $user_id;
-  public $name;
-  public $address;
-  public $founded;
-  public $employees;
-  public $revenue;
+  private $business_id;
+  private $user_id;
+  private $name;
+  private $address;
+  private $founded;
+  private $employees;
+  private $revenue;
 
   public function getBusinessByUserId($userId)
   {

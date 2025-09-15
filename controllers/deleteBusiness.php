@@ -5,14 +5,14 @@ if(session_status() == PHP_SESSION_NONE)
   session_start();
 }
 
-require_once "Business.php";
+require_once "../models/Business.php";
 
 $business = new Business();
 
 if(!isset($_POST["delete"]))
 {
   $_SESSION["message"] = "You didnt send form delete";
-  header("Location: ../userBusiness.php");
+  header("Location: ../view/userBusiness.php");
   exit();
 }
 
@@ -28,18 +28,18 @@ $afterCount = $business->countUserBusiness($userId);
 if($beforeCount === $afterCount)
 {
   $_SESSION["message"] = "Business was not deleted";
-  header("Location: ../userBusiness.php");
+  header("Location: ../view/userBusiness.php");
   exit();
 }
 elseif($afterCount > 0)
 {
   $_SESSION["message"] = "Business was successfully deleted";
-  header("Location: ../userBusiness.php");
+  header("Location: ../view/userBusiness.php");
   exit();
 }
 elseif($afterCount < 1)
 {
   $_SESSION["message"] = "Business was successfully deleted";
-  header("Location: ../userPage.php");
+  header("Location: ../view/userPage.php");
   exit();
 }

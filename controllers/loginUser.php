@@ -5,15 +5,15 @@ if(session_status() == PHP_SESSION_NONE)
   session_start();
 }
 
-require_once "User.php";
-require_once "Database.php";
+require_once "../models/User.php";
+require_once "../models/Database.php";
 
 $database = new Database();
 
 if(!isset($_POST["email"]) || empty($_POST["email"]))
 {
   $_SESSION["message"] = "You didnt send email";
-  header("Location: ../login.php");
+  header("Location: ../view/login.php");
   exit();
 }
 else
@@ -24,7 +24,7 @@ else
 if(!isset($_POST["password"]) || empty($_POST["password"]))
 {
   $_SESSION["message"] = "You didnt send password";
-  header("Location: ../login.php");
+  header("Location: ../view/login.php");
   exit();
 }
 else
@@ -37,7 +37,7 @@ $result = $database->connection->query("SELECT * FROM user WHERE email = '$email
 if($result->num_rows < 1)
 {
   $_SESSION["message"] = "Email doesnt exists";
-  header("Location: ../login.php");
+  header("Location: ../view/login.php");
   exit();
 }
 
@@ -48,7 +48,7 @@ $passwordFromDatabase = $user["password"];
 if(!password_verify($password,$passwordFromDatabase))
 {
   $_SESSION["message"] = "Icorrect password";
-  header("Location: ../login.php");
+  header("Location: ../view/login.php");
   exit();
 }
 

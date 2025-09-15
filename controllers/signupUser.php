@@ -5,13 +5,13 @@ if(session_status() == PHP_SESSION_NONE)
   session_start();
 }
 
-require_once "User.php";
+require_once "../models/User.php";
 
 
 if(!isset($_POST["username"]) || empty($_POST["username"]))
 {
   $_SESSION["message"] = "You didnt send Username";
-  header("Location: ../signup.php");
+  header("Location: ../view/signup.php");
   exit();
 }
 else
@@ -22,7 +22,7 @@ else
 if(!isset($_POST["email"]) || empty($_POST["email"]))
 {
   $_SESSION["message"] = "You didnt send email";
-  header("Location: ../signup.php");
+  header("Location: ../view/signup.php");
   exit();
 }
 else
@@ -33,7 +33,7 @@ else
 if(!isset($_POST["password"]) || empty($_POST["password"]))
 {
   $_SESSION["message"] = "You didnt send password";
-  header("Location: ../signup.php");
+  header("Location: ../view/signup.php");
   exit();
 }
 else
@@ -44,7 +44,7 @@ else
 if(!isset($_POST["repeatPassword"]) || empty($_POST["repeatPassword"]))
 {
   $_SESSION["message"] = "You didnt send repeated password";
-  header("Location: ../signup.php");
+  header("Location: ../view/signup.php");
   exit();
 }
 else
@@ -58,21 +58,21 @@ $user = new User();
 if($user->checkUsernameExists($username))
 {
   $_SESSION["message"] = "Username already exists";
-  header("Location: ../signup.php");
+  header("Location: ../view/signup.php");
   exit();
 }
 
 if($user->checkEmailExists($email))
 {
   $_SESSION["message"] = "Email already exists";
-  header("Location: ../signup.php");
+  header("Location: ../view/signup.php");
   exit();
 }
 
 if($password != $repeatPassword)
 {
   $_SESSION["message"] = "Passwords dont match";
-  header("Location: ../signup.php");
+  header("Location: ../view/signup.php");
   exit();
 }
 

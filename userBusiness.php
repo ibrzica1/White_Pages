@@ -78,7 +78,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
           <div class="business_id-display">
             <img src="images\fingerprint.png">
             <p><?=$business['business_id']?></p>
-            <button onclick="showEditForm('business_id')" class="edit-btn">Edit</button>
+            <button onclick="showEditForm(this.closest('.user-business'),'business_id')" class="edit-btn">Edit</button>
           </div>
 
           <div class="business_id-edit-form" style="display: none;">
@@ -88,7 +88,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
               <img src="images\fingerprint.png">
               <input type="text" name="newBusiness_id" placeholder="<?=$business['business_id']?>">
               <button type="submit"  class="save-btn">Save</button>
-              <button type="button" onclick="hideEditForm('business_id')" class="cancel-btn">Cancel</button>
+              <button type="button" onclick="hideEditForm(this.closest('.user-business'),'business_id')" class="cancel-btn">Cancel</button>
             </form>
           </div>
         </div>
@@ -98,7 +98,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
           <div class="name-display">
             <img src="images\briefcase.png">
             <p><?=$business['name']?></p>
-            <button onclick="showEditForm('name')" class="edit-btn">Edit</button>
+            <button onclick="showEditForm(this.closest('.user-business'),'name')" class="edit-btn">Edit</button>
           </div>
 
           <div class="name-edit-form" style="display: none;">
@@ -108,7 +108,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
               <img src="images\briefcase.png">
               <input type="text" name="newName" placeholder="<?=$business['name']?>">
               <button type="submit" class="save-btn">Save</button>
-              <button type="button" onclick="hideEditForm('name')" class="cancel-btn">Cancel</button>
+              <button type="button" onclick="hideEditForm(this.closest('.user-business'),'name')" class="cancel-btn">Cancel</button>
             </form>
           </div>
         </div>
@@ -118,7 +118,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
           <div class="address-display">
             <img src="images\location.png">
             <p><?=$business['address']?></p>
-            <button onclick="showEditForm('address')" class="edit-btn">Edit</button>
+            <button onclick="showEditForm(this.closest('.user-business'),'address')" class="edit-btn">Edit</button>
           </div>
 
           <div class="address-edit-form" style="display: none;">
@@ -128,7 +128,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
               <img src="images\location.png">
               <input type="text" name="newAddress" placeholder="<?=$business['address']?>">
               <button type="submit" class="save-btn">Save</button>
-              <button type="button" onclick="hideEditForm('address')" class="cancel-btn">Cancel</button>
+              <button type="button" onclick="hideEditForm(this.closest('.user-business'),'address')" class="cancel-btn">Cancel</button>
             </form>
           </div>
         </div>
@@ -138,7 +138,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
           <div class="founded-display">
             <img src="images\pantheon.png">
             <p><?=$business['founded']?></p>
-            <button onclick="showEditForm('founded')" class="edit-btn">Edit</button>
+            <button onclick="showEditForm(this.closest('.user-business'),'founded')" class="edit-btn">Edit</button>
           </div>
 
           <div class="founded-edit-form" style="display: none;">
@@ -148,7 +148,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
               <img src="images\pantheon.png">
               <input type="date" name="newFounded" placeholder="<?=$business['founded']?>">
               <button type="submit" class="save-btn">Save</button>
-              <button type="button" onclick="hideEditForm('founded')" class="cancel-btn">Cancel</button>
+              <button type="button" onclick="hideEditForm(this.closest('.user-business'),'founded')" class="cancel-btn">Cancel</button>
             </form>
           </div>
         </div>
@@ -158,7 +158,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
           <div class="employees-display">
             <img src="images\employee.png">
             <p><?=$business['employees']?></p>
-            <button onclick="showEditForm('employees')" class="edit-btn">Edit</button>
+            <button onclick="showEditForm(this.closest('.user-business'),'employees')" class="edit-btn">Edit</button>
           </div>
 
           <div class="employees-edit-form" style="display: none;">
@@ -168,7 +168,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
               <img src="images\employee.png">
               <input type="text" name="newEmployees" placeholder="<?=$business['employees']?>">
               <button type="submit" class="save-btn">Save</button>
-              <button type="button" onclick="hideEditForm('employees')" class="cancel-btn">Cancel</button>
+              <button type="button" onclick="hideEditForm(this.closest('.user-business'),'employees')" class="cancel-btn">Cancel</button>
             </form>
           </div>
         </div>
@@ -178,7 +178,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
           <div class="revenue-display">
             <img src="images\salary.png">
             <p><?=$business['revenue']?></p>
-            <button onclick="showEditForm('revenue')" class="edit-btn">Edit</button>
+            <button onclick="showEditForm(this.closest('.user-business'),'revenue')" class="edit-btn">Edit</button>
           </div>
 
           <div class="revenue-edit-form" style="display: none;">
@@ -188,7 +188,7 @@ $userBusiness = $business->getBusinessByUserId($userId);
               <img src="images\salary.png">
               <input type="text" name="newRevenue" placeholder="<?=$business['revenue']?>">
               <button type="submit" class="save-btn">Save</button>
-              <button type="button" onclick="hideEditForm('revenue')" class="cancel-btn">Cancel</button>
+              <button type="button" onclick="hideEditForm(this.closest('.user-business'),'revenue')" class="cancel-btn">Cancel</button>
             </form>
           </div>
         </div>
@@ -209,16 +209,16 @@ $userBusiness = $business->getBusinessByUserId($userId);
 
 
 <script>
-  function showEditForm(field)
+  function showEditForm(parent, field)
   {
-    document.querySelector(`.${field}-display`).style.display = 'none';
-    document.querySelector(`.${field}-edit-form`).style.display = 'flex';
+    parent.querySelector(`.${field}-display`).style.display = 'none';
+    parent.querySelector(`.${field}-edit-form`).style.display = 'flex';
   }
 
-  function hideEditForm(field)
+  function hideEditForm(parent, field)
   {
-    document.querySelector(`.${field}-display`).style.display = 'flex';
-    document.querySelector(`.${field}-edit-form`).style.display = 'none';
+    parent.querySelector(`.${field}-display`).style.display = 'flex';
+    parent.querySelector(`.${field}-edit-form`).style.display = 'none';
   }
 </script>
 

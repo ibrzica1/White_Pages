@@ -55,17 +55,17 @@ $businessCount = $user->getNumberUserBusiness($userId);
 
 <div class="user-body">
 
+  <?php if(isset($_SESSION["message"])): ?>
+    <?php $message = htmlspecialchars($_SESSION["message"]); ?>
+    <div class="userPage-message">
+    <p class="message"><?=  $message ?></p>
+    </div>
+    <?php unset($_SESSION["message"]); ?>
+ <?php endif; ?>
+
   <div class="user-info-container">
 
       <h2><?=$sessionUser["username"]?></h2>
-
-      <?php if(isset($_SESSION["message"])): ?>
-          <?php $message = htmlspecialchars($_SESSION["message"]); ?>
-          <div class="userPage-message">
-            <p><?=  $message ?></p>
-          </div>
-          <?php unset($_SESSION["message"]); ?>
-      <?php endif; ?>
 
     <div class="username-container">
       <p>Username</p>

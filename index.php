@@ -53,13 +53,13 @@
 
   <p class="description">Find Business, their address, revenue and more</p>
 
-   <div class="index-search-container">
+  <?php if(isset($_SESSION["message"])): ?>
+    <?php $message = htmlspecialchars($_SESSION["message"]); ?>
+    <p class="message"><?=  $message ?></p>
+    <?php unset($_SESSION["message"]); ?>
+  <?php endif; ?>
 
-     <?php if(isset($_SESSION["message"])): ?>
-      <?php $message = htmlspecialchars($_SESSION["message"]); ?>
-      <p><?=  $message ?></p>
-      <?php unset($_SESSION["message"]); ?>
-     <?php endif; ?>
+   <div class="index-search-container">
 
     <form action="searchBusiness.php" method="get">
       <p class="search-type">Search By Business Id</p>

@@ -47,13 +47,13 @@ if(isset($_SESSION["logged"]))
 
   <div class="login-body-container">
 
-    <div>
-
-       <?php if(isset($_SESSION["message"])): ?>
+      <?php if(isset($_SESSION["message"])): ?>
         <?php $message = htmlspecialchars($_SESSION["message"]); ?>
         <p class="message"><?= $message ?></p>
         <?php unset($_SESSION["message"]); ?>
        <?php endif; ?>
+
+    <div>
 
       <form action="models/loginUser.php" method="POST" class="login-form">
         <h>Email</h>

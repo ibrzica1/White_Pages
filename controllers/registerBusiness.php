@@ -128,7 +128,22 @@ if($revenueCount <= 0) {
     exit();
 }
 
+$oldCount = $business->countUserBusiness($user_id);
+
 $business->registerBusiness($business_id,$user_id,$name,$address,$founded,$employees,$revenue);
 
-header ("Location: ../index.php");
-exit();
+$newCount = $business->countUserBusiness($user_id);
+
+if($newCount > $oldCount)
+{
+  $_SESSION["message"] = "Business successfully registered";
+  header ("Location: ../index.php");
+  exit();
+}
+else
+{
+  $_SESSION["message"] = "Business wasnt registered";
+  header ("Location: ../index.php");
+  exit();
+}
+

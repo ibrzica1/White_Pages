@@ -33,6 +33,13 @@ if(isset($_POST['field']))
         $newUsername = $_POST["newUsername"];
       }
 
+    if($user->checkUsernameExists($newUsername))
+    {
+      $_SESSION["message"] = "Username already exists";
+      header("Location: ../view/userPage.php");
+      exit();
+    }
+
     $beforeName = $user->getUserAtribute($fieldToUpdate,$userId);
 
     $user->updateUsername($newUsername,$userId);
@@ -67,6 +74,14 @@ if(isset($_POST['field']))
       {
         $newEmail = $_POST["newEmail"];
       }
+
+    if($user->checkEmailExists($newEmail))
+    {
+      $_SESSION["message"] = "Email already exists";
+      header("Location: ../view/userPage.php");
+      exit();
+    }  
+
     $beforeEmail = $user->getUserAtribute($fieldToUpdate,$userId);
 
     $user->updateEmail($newEmail,$userId);

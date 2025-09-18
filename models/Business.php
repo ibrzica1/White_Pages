@@ -161,6 +161,22 @@ class Business extends Database
     }
   }
 
+  public function checkNameExists($name)
+  {
+    $name = $this->connection->real_escape_string($name);
+
+    $result = $this->connection->query("SELECT * FROM business WHERE name = '$name' ");
+
+    if($result->num_rows > 0)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
   public function checkFoundedDate($date)
   {
       $foundedDate = new DateTime($date);

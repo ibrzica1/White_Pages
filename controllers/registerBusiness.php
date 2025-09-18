@@ -73,6 +73,15 @@ else
   $revenue = $_POST["revenue"];
 }
 
+if(!isset($_SESSION["id"]))
+{
+  $_SESSION["message"] = "Session Id not set, Login again";
+  header("Location: ../view/businessinput.php");
+  exit();
+}
+
+$user_id = $_SESSION["id"];
+
 $business = new Business();
 
 if($business->checkBusinessIdExists($business_id))
@@ -82,14 +91,12 @@ if($business->checkBusinessIdExists($business_id))
   exit();
 }
 
-if(!isset($_SESSION["id"]))
+if($business->checkNameExists($bunamesiness_id))
 {
-  $_SESSION["message"] = "Session Id not set, Login again";
+  $_SESSION["message"] = "Business Name already exists";
   header("Location: ../view/businessinput.php");
   exit();
 }
-
-$user_id = $_SESSION["id"];
 
 if(!$business->checkFoundedDate($founded))
 {

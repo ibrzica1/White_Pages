@@ -133,6 +133,18 @@ class Business extends Database
     $this->connection->query("DELETE FROM business WHERE id = '$id' ");
   }
 
+  public function checkIfPositiveNumber($input)
+  {
+    $inputCount = (int)$input;
+
+    if ($employeesCount <= 0)
+    {
+      return false;
+    }
+    return true;
+  }
+
+
   public function checkBusinessIdExists($id)
   {
     $id = $this->connection->real_escape_string($id);

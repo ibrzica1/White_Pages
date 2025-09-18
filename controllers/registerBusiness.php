@@ -105,9 +105,7 @@ if(!is_numeric($employees))
   exit();
 }
 
-$employeesCount = (int)$employees;
-
-if ($employeesCount <= 0) {
+if(!$business->checkIfPositiveNumber($employees)) {
     $_SESSION["message"] = "Number of employees must be a positive number.";
     header("Location: ../view/businessinput.php");
     exit();
@@ -120,9 +118,7 @@ if(!is_numeric($revenue))
   exit();
 }
 
-$revenueCount = (int)$revenue;
-
-if($revenueCount <= 0) {
+if(!$business->checkIfPositiveNumber($revenue)) {
     $_SESSION["message"] = "Revenue must be a positive number.";
     header("Location: ../view/businessinput.php");
     exit();

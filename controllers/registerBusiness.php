@@ -91,7 +91,7 @@ if($business->checkBusinessIdExists($business_id))
   exit();
 }
 
-if($business->checkNameExists($bunamesiness_id))
+if($business->checkNameExists($name))
 {
   $_SESSION["message"] = "Business Name already exists";
   header("Location: ../view/businessinput.php");

@@ -40,6 +40,13 @@ if(isset($_POST['field']))
         $newBusiness_id = $_POST["newBusiness_id"];
       }
 
+    if($business->checkBusinessIdExists($newBusiness_id))
+    {
+      $_SESSION["message"] = "Business Id already exists";
+      header("Location: ../view/userBusiness.php");
+      exit();
+    }
+
     $beforeId = $business->getBusinAtribute($fieldToUpdate,$businessId);
 
     $business->updateBusinessId($newBusiness_id,$businessId);
@@ -72,6 +79,13 @@ if(isset($_POST['field']))
       {
         $newname = $_POST["newName"];
       }
+
+    if($business->checkNameExists($newname))
+    {
+      $_SESSION["message"] = "Business Name already exists";
+      header("Location: ../view/userBusiness.php");
+      exit();
+    }
 
     $beforeName = $business->getBusinAtribute($fieldToUpdate,$businessId);
 
@@ -139,6 +153,13 @@ if(isset($_POST['field']))
         $newFounded = $_POST["newFounded"];
       }
 
+    if(!$business->checkFoundedDate($newFounded))
+    {
+      $_SESSION["message"] = "Founded date cant be after today";
+      header("Location: ../view/userBusiness.php");
+      exit();
+    }  
+
     $beforeFounded = $business->getBusinAtribute($fieldToUpdate,$businessId);
 
     $business->updateFounded($newFounded,$businessId);
@@ -172,6 +193,20 @@ if(isset($_POST['field']))
         $newEmployees = $_POST["newEmployees"];
       }
 
+    if(!is_numeric($newEmployees))
+    {
+      $_SESSION["message"] = "Employees input must be a number";
+      header("Location: ../view/userBusiness.php");
+      exit();
+    }
+
+    if(!$business->checkIfPositiveNumber($newEmployees)) 
+    {
+      $_SESSION["message"] = "Number of employees must be a positive number.";
+      header("Location: ../view/userBusiness.php");
+      exit();
+    }
+
     $beforeEmployees = $business->getBusinAtribute($fieldToUpdate,$businessId);
 
     $business->updateEmployees($newEmployees,$businessId);
@@ -204,6 +239,20 @@ if(isset($_POST['field']))
       {
         $newRevenue = $_POST["newRevenue"];
       }
+
+    if(!is_numeric($newRevenue))
+    {
+      $_SESSION["message"] = "Revenue input must be a number";
+      header("Location: ../view/userBusiness.php");
+      exit();
+    }
+
+    if(!$business->checkIfPositiveNumber($newRevenue)) 
+    {
+      $_SESSION["message"] = "Revenue number must be a positive number.";
+      header("Location: ../view/userBusiness.php");
+      exit();
+    }
 
     $beforeRevenue = $business->getBusinAtribute($fieldToUpdate,$businessId);
 

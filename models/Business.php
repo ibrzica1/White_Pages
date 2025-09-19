@@ -137,7 +137,7 @@ class Business extends Database
   {
     $inputCount = (int)$input;
 
-    if ($employeesCount <= 0)
+    if ($inputCount <= 0)
     {
       return false;
     }
